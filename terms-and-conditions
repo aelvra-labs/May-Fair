@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terms &amp; Conditions — Aelvra × May Fair Restaurant</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#0a0a0b;--surface:#111113;--border:#222226;--border2:#2e2e34;
+  --gold:#c9a84c;--gold-dim:#7a6430;--text:#e8e8ec;--muted:#6c6c78;
+  --muted2:#4a4a54;--white:#ffffff;
+  --red:#e05252;--red-dim:rgba(224,82,82,0.08);--red-border:rgba(224,82,82,0.2);
+  --blue-dim:rgba(80,140,220,0.07);--blue-border:rgba(80,140,220,0.2);
+  --green-dim:rgba(76,175,125,0.07);--green-border:rgba(76,175,125,0.22);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;background:rgba(10,10,11,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 40px;justify-content:space-between;}
+.topbar-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:0.12em;color:var(--white);text-decoration:none;}
+.topbar-right{display:flex;align-items:center;gap:16px;}
+.topbar-sub{font-size:11px;color:var(--muted);letter-spacing:0.06em;}
+.topbar-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);padding:4px 14px;border-radius:2px;}
+
+.layout{display:flex;min-height:100vh;padding-top:56px;}
+
+.sidebar{width:268px;flex-shrink:0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;border-right:1px solid var(--border);padding:40px 0;}
+.sidebar-head{font-size:10px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);padding:0 32px 18px;border-bottom:1px solid var(--border);margin-bottom:12px;}
+.nav-item{display:flex;align-items:center;gap:12px;padding:8px 32px;text-decoration:none;font-size:12.5px;font-weight:400;color:var(--muted);transition:color .18s,background .18s;border-left:2px solid transparent;line-height:1.4;}
+.nav-item:hover{color:var(--text);background:rgba(255,255,255,0.03);border-left-color:var(--border2);}
+.nav-item.active{color:var(--gold);border-left-color:var(--gold);background:rgba(201,168,76,0.05);}
+.nav-num{font-size:10px;font-weight:500;color:var(--muted2);min-width:20px;}
+.nav-divider{height:1px;background:var(--border);margin:10px 32px;}
+
+.content{flex:1;max-width:780px;padding:64px 72px 120px;animation:fadeUp .5s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+.hero{margin-bottom:72px;padding-bottom:52px;border-bottom:1px solid var(--border);}
+.hero-kicker{font-size:11px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5.5vw,62px);font-weight:600;line-height:1.05;color:var(--white);margin-bottom:8px;letter-spacing:-0.01em;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--muted);margin-bottom:28px;}
+.hero-meta{display:flex;flex-wrap:wrap;gap:28px;margin-bottom:28px;}
+.meta-block dt{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.meta-block dd{font-size:13.5px;color:var(--text);}
+.hero-notice{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.16);border-left:3px solid var(--gold);padding:16px 20px;font-size:13.5px;line-height:1.75;color:#b0b0bc;border-radius:0 2px 2px 0;}
+.hero-notice strong{color:var(--text);}
+
+.section{margin-bottom:64px;padding-bottom:64px;border-bottom:1px solid var(--border);opacity:0;animation:fadeUp .45s ease both;}
+.section:nth-child(1){animation-delay:.04s;}.section:nth-child(2){animation-delay:.07s;}.section:nth-child(3){animation-delay:.10s;}.section:nth-child(4){animation-delay:.13s;}.section:nth-child(5){animation-delay:.15s;}.section:nth-child(6){animation-delay:.17s;}.section:nth-child(7){animation-delay:.19s;}.section:nth-child(8){animation-delay:.21s;}.section:nth-child(9){animation-delay:.23s;}.section:nth-child(10){animation-delay:.25s;}.section:nth-child(11){animation-delay:.27s;}.section:nth-child(12){animation-delay:.29s;}.section:nth-child(13){animation-delay:.31s;}.section:nth-child(14){animation-delay:.33s;}.section:nth-child(15){animation-delay:.35s;}.section:nth-child(16){animation-delay:.37s;}.section:nth-child(17){animation-delay:.39s;}.section:nth-child(18){animation-delay:.41s;}.section:nth-child(19){animation-delay:.43s;}
+.section:last-of-type{border-bottom:none;}
+
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:26px;}
+.section-num{font-family:'Cormorant Garamond',serif;font-size:13px;color:var(--gold-dim);letter-spacing:0.1em;min-width:28px;}
+.section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.6vw,26px);font-weight:600;color:var(--white);line-height:1.2;letter-spacing:-0.01em;}
+
+p{font-size:14.5px;line-height:1.88;color:#b0b0bc;margin-bottom:16px;}
+p:last-child{margin-bottom:0;}
+p strong{color:var(--text);font-weight:500;}
+a{color:var(--gold);text-decoration:none;}
+a:hover{text-decoration:underline;}
+.sub-head{font-size:13px;font-weight:600;letter-spacing:0.06em;color:var(--text);margin:24px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border);}
+
+.clause-list{list-style:none;padding:0;margin:16px 0;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.clause-list li{display:flex;border-bottom:1px solid var(--border);font-size:14px;color:#b0b0bc;line-height:1.75;}
+.clause-list li:last-child{border-bottom:none;}
+.clause-list li::before{content:attr(data-n);display:flex;align-items:flex-start;justify-content:center;min-width:52px;padding:13px 0;font-size:10.5px;font-weight:600;color:var(--gold);background:rgba(201,168,76,0.04);border-right:1px solid var(--border);font-family:'Outfit',sans-serif;letter-spacing:0.05em;flex-shrink:0;}
+.clause-list li span{padding:13px 20px;display:block;}
+.clause-list li strong{color:var(--text);font-weight:500;}
+
+.data-wrap{margin:20px 0;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead tr{background:var(--surface);border-bottom:1px solid var(--border2);}
+thead th{padding:12px 16px;text-align:left;font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+tbody td{padding:13px 16px;border-bottom:1px solid var(--border);color:#b0b0bc;vertical-align:top;line-height:1.65;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:hover td{background:rgba(255,255,255,0.012);}
+tbody td strong{color:var(--text);font-weight:500;}
+
+.callout{display:flex;gap:14px;align-items:flex-start;border-radius:4px;padding:16px 18px;margin:20px 0;font-size:13.5px;line-height:1.75;color:#a0a0b0;}
+.callout.gold{background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.18);}
+.callout.red{background:var(--red-dim);border:1px solid var(--red-border);}
+.callout.blue{background:var(--blue-dim);border:1px solid var(--blue-border);}
+.callout.green{background:var(--green-dim);border:1px solid var(--green-border);}
+.callout.surface{background:var(--surface);border:1px solid var(--border2);}
+.callout-icon{font-size:15px;flex-shrink:0;margin-top:1px;}
+.callout strong{color:var(--text);}
+
+/* Order Status Flow */
+.flow{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:20px 0;}
+.flow-item{display:flex;align-items:flex-start;gap:0;border-bottom:1px solid var(--border);}
+.flow-item:last-child{border-bottom:none;}
+.flow-badge{min-width:160px;padding:14px 16px;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,0.05);border-right:1px solid var(--border);display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.flow-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0;}
+.flow-desc{padding:14px 20px;font-size:13.5px;color:#b0b0bc;line-height:1.7;}
+.flow-desc strong{color:var(--text);}
+
+.stat-row{display:flex;gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;margin:20px 0;}
+.stat-item{flex:1;padding:18px 20px;border-right:1px solid var(--border);}
+.stat-item:last-child{border-right:none;}
+.stat-label{font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
+.stat-value{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--gold);}
+.stat-sub{font-size:12px;color:var(--muted);margin-top:3px;}
+
+.contact-block{margin-top:22px;background:var(--surface);border:1px solid var(--border2);border-top:2px solid var(--gold);border-radius:0 0 4px 4px;padding:28px 32px;}
+.contact-block .co-label{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.contact-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13.5px;}
+.contact-row:last-child{border-bottom:none;}
+.contact-row .cr-key{color:var(--muted);min-width:100px;font-size:11.5px;padding-top:1px;}
+.contact-row .cr-val{color:var(--text);}
+
+footer{border-top:1px solid var(--border);padding:28px 72px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted2);letter-spacing:0.04em;margin-left:268px;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--muted);letter-spacing:0.1em;}
+footer a{color:var(--muted);text-decoration:none;}
+footer a:hover{color:var(--text);}
+
+@media(max-width:880px){
+  .sidebar{display:none;}
+  .content{padding:44px 24px 80px;max-width:100%;}
+  footer{margin-left:0;padding:24px;}
+  .topbar{padding:0 20px;}
+  .topbar-sub{display:none;}
+  .stat-row{flex-direction:column;}
+  .stat-item{border-right:none;border-bottom:1px solid var(--border);}
+  .stat-item:last-child{border-bottom:none;}
+  .flow-badge{min-width:130px;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <a href="https://aelvra.in" class="topbar-logo">AELVRA</a>
+  <div class="topbar-right">
+    <span class="topbar-sub">May Fair Restaurant · Rohru</span>
+    <span class="topbar-label">Terms &amp; Conditions</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <nav class="sidebar">
+    <div class="sidebar-head">Contents</div>
+    <a class="nav-item active" href="#s1"><span class="nav-num">01</span>Definitions</a>
+    <a class="nav-item" href="#s2"><span class="nav-num">02</span>Acceptance of Terms</a>
+    <a class="nav-item" href="#s3"><span class="nav-num">03</span>Eligibility</a>
+    <a class="nav-item" href="#s3a"><span class="nav-num">03A</span>Legal Compliance</a>
+    <a class="nav-item" href="#s3b"><span class="nav-num">03B</span>DPDP Act 2023</a>
+    <a class="nav-item" href="#s4"><span class="nav-num">04</span>User Account</a>
+    <a class="nav-item" href="#s5"><span class="nav-num">05</span>Placing Orders</a>
+    <a class="nav-item" href="#s6"><span class="nav-num">06</span>Order Status Flow</a>
+    <a class="nav-item" href="#s7"><span class="nav-num">07</span>Custom Instructions</a>
+    <a class="nav-item" href="#s8"><span class="nav-num">08</span>Pricing &amp; Payment</a>
+    <a class="nav-item" href="#s9"><span class="nav-num">09</span>Delivery Terms</a>
+    <a class="nav-item" href="#s10"><span class="nav-num">10</span>Dine-in &amp; Takeaway</a>
+    <a class="nav-item" href="#s11"><span class="nav-num">11</span>Cancellation Policy</a>
+    <a class="nav-item" href="#s12"><span class="nav-num">12</span>Refund Policy</a>
+    <a class="nav-item" href="#s13"><span class="nav-num">13</span>Food &amp; Menu</a>
+    <a class="nav-item" href="#s14"><span class="nav-num">14</span>Platform Availability</a>
+    <a class="nav-item" href="#s15"><span class="nav-num">15</span>Intellectual Property</a>
+    <a class="nav-item" href="#s16"><span class="nav-num">16</span>Limitation of Liability</a>
+    <a class="nav-item" href="#s17"><span class="nav-num">17</span>Prohibited Conduct</a>
+    <a class="nav-item" href="#s18"><span class="nav-num">18</span>Governing Law</a>
+    <a class="nav-item" href="#s19"><span class="nav-num">19</span>Contact &amp; Grievance</a>
+    <div class="nav-divider"></div>
+    <a class="nav-item" href="privacy-policy.html"><span class="nav-num">↗</span>Privacy Policy</a>
+    <a class="nav-item" href="data-deletion.html"><span class="nav-num">↗</span>Data Deletion</a>
+  </nav>
+
+  <main class="content">
+
+    <div class="hero">
+      <div class="hero-kicker">Legal Document · aelvra.in</div>
+      <h1>Terms &amp;<br/>Conditions</h1>
+      <div class="hero-sub">May Fair Restaurant × Aelvra</div>
+      <div class="hero-meta">
+        <dl class="meta-block"><dt>Effective Date</dt><dd>20 March 2026</dd></dl>
+        <dl class="meta-block"><dt>Last Revised</dt><dd>20 March 2026</dd></dl>
+        <dl class="meta-block"><dt>Governing Law</dt><dd>Republic of India</dd></dl>
+        <dl class="meta-block"><dt>Jurisdiction</dt><dd>Sub-Divisional Court, Rohru, H.P.</dd></dl>
+        <dl class="meta-block"><dt>Version</dt><dd>1.0</dd></dl>
+      </div>
+      <div class="hero-notice">
+        <strong>Please read these Terms &amp; Conditions carefully before using this Application.</strong> By continuing with Google Sign-In or any other login method, or by accessing, installing, or using the Application in any manner, you unconditionally acknowledge that you have read, understood, and agree to be legally bound by these Terms in their entirety, along with Aelvra's <a href="privacy-policy.html">Privacy Policy</a>. If you do not agree, discontinue use immediately.
+      </div>
+    </div>
+
+    <!-- 01 -->
+    <section class="section" id="s1">
+      <div class="section-header"><span class="section-num">01</span><h2>Definitions</h2></div>
+      <div class="data-wrap">
+        <table>
+          <thead><tr><th>Term</th><th>Meaning</th></tr></thead>
+          <tbody>
+            <tr><td><strong>"Application" / "App"</strong></td><td>The mobile application and associated platform developed and operated by Aelvra for May Fair Restaurant.</td></tr>
+            <tr><td><strong>"Aelvra"</strong></td><td>The technology partner and platform operator responsible for developing, maintaining, and operating the Application. Contact: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9ff4feedebf6f4dffefaf3e9edfeb1f6f1">[email&#160;protected]</a></td></tr>
+            <tr><td><strong>"Restaurant" / "May Fair"</strong></td><td>May Fair Restaurant, Rohru, Himachal Pradesh — 171207, the independent food and beverage business fulfilling all orders placed through the Application.</td></tr>
+            <tr><td><strong>"User" / "You"</strong></td><td>Any individual who accesses, registers on, or uses the Application.</td></tr>
+            <tr><td><strong>"Order"</strong></td><td>A confirmed request placed by a User through the Application for food items from May Fair Restaurant.</td></tr>
+            <tr><td><strong>"Services"</strong></td><td>All features and capabilities provided through the Application — ordering, payment, delivery coordination, notifications, and support.</td></tr>
+            <tr><td><strong>"Custom Instructions"</strong></td><td>User-specified modifications or preferences attached to individual order items at the time of checkout.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="section" id="s2">
+      <div class="section-header"><span class="section-num">02</span><h2>Acceptance of Terms</h2></div>
+      <div class="callout gold">
+        <span class="callout-icon">§</span>
+        <div><strong>By tapping "Continue with Google" or signing in through any login method</strong>, you confirm that you have read and unconditionally agree to these Terms &amp; Conditions and the Privacy Policy. This constitutes a legally binding agreement between you, Aelvra, and May Fair Restaurant.</div>
+      </div>
+      <ul class="clause-list">
+        <li data-n="(a)"><span>These Terms apply to all use of the Application — browsing, account creation, order placement, payment, and all other interactions.</span></li>
+        <li data-n="(b)"><span>Aelvra's <a href="privacy-policy.html">Privacy Policy</a> is incorporated herein by reference and forms an integral part of these Terms.</span></li>
+        <li data-n="(c)"><span>Your continued use of the Application following any revision of these Terms constitutes acceptance of the updated Terms.</span></li>
+        <li data-n="(d)"><span>If you use the Application on behalf of another person, you represent that you have authority to bind that person to these Terms.</span></li>
+      </ul>
+    </section>
+
+    <!-- 03 -->
+    <section class="section" id="s3">
+      <div class="section-header"><span class="section-num">03</span><h2>Eligibility</h2></div>
+      <ul class="clause-list">
+        <li data-n="(a)"><span><strong>Age:</strong> You must be at least <strong>18 (eighteen) years of age</strong> to use this Application. Age is verified at the point of registration through <strong>Google OAuth</strong> (which requires a valid Google account) or <strong>Mobile OTP verification</strong>. By completing registration through either method, you represent and warrant that you are 18 or older. This requirement is in accordance with the Indian Contract Act, 1872 (Sections 11–12), which mandates legal majority for entering into binding contracts.</span></li>
+        <li data-n="(b)"><span><strong>Legal Capacity:</strong> You must have the legal capacity to enter into a binding contract under the Indian Contract Act, 1872.</span></li>
+        <li data-n="(c)"><span><strong>Accurate Information:</strong> You must provide truthful, accurate, and complete information during registration and at all subsequent interactions.</span></li>
+        <li data-n="(d)"><span><strong>Single Account:</strong> Each user may maintain only one registered account. Duplicate or fraudulent accounts are strictly prohibited.</span></li>
+      </ul>
+      <div class="callout red"><span class="callout-icon">⚠</span><div>Aelvra and May Fair Restaurant reserve the right to suspend or permanently terminate any account found in violation of eligibility requirements, without prior notice.</div></div>
+    </section>
+
+    <!-- 03-A -->
+    <section class="section" id="s3a">
+      <div class="section-header"><span class="section-num">03A</span><h2>Legal Compliance &amp; Regulatory Status</h2></div>
+      <ul class="clause-list">
+        <li data-n="(a)"><span><strong>FSSAI Registration:</strong> May Fair Restaurant's FSSAI Basic Registration is currently <strong>in process</strong> under the Food Safety and Standards Act, 2006. Upon receipt, the FSSAI licence number will be displayed within the Application and on all food packaging as required by law. May Fair Restaurant affirms full compliance with applicable food safety standards during this interim period.</span></li>
+        <li data-n="(b)"><span><strong>GST Exemption:</strong> May Fair Restaurant is currently exempt from GST registration as annual turnover is below the threshold of ₹20 lakh per year under the CGST Act, 2017. This status will be updated in these Terms and within the Application if a
