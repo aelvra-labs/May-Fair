@@ -1,476 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Privacy Policy — Mayfair</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Privacy Policy — Aelvra × May Fair Restaurant</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{--bg:#0a0a0b;--surface:#111113;--border:#222226;--border2:#2e2e34;--gold:#c9a84c;--gold-dim:#7a6430;--text:#e8e8ec;--muted:#6c6c78;--muted2:#4a4a54;--white:#ffffff;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;font-size:16px;}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
 
-    :root {
-      --bg: #0D0F14;
-      --surface: #13161C;
-      --border: #1E2330;
-      --accent: #C9A96E;
-      --accent2: #E8C98A;
-      --text: #E8E6E0;
-      --muted: #7A7D8A;
-      --soft: #2A2D3A;
-    }
+/* TOP BAR */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;background:rgba(10,10,11,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 40px;justify-content:space-between;}
+.topbar-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:0.12em;color:var(--white);text-decoration:none;}
+.topbar-right{display:flex;align-items:center;gap:16px;}
+.topbar-sub{font-size:11px;color:var(--muted);letter-spacing:0.06em;}
+.topbar-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);padding:4px 14px;border-radius:2px;}
 
-    html { scroll-behavior: smooth; }
+/* LAYOUT */
+.layout{display:flex;min-height:100vh;padding-top:56px;}
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      min-height: 100vh;
-    }
+/* SIDEBAR */
+.sidebar{width:268px;flex-shrink:0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;border-right:1px solid var(--border);padding:40px 0;}
+.sidebar-head{font-size:10px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);padding:0 32px 18px;border-bottom:1px solid var(--border);margin-bottom:12px;}
+.nav-item{display:flex;align-items:center;gap:12px;padding:8px 32px;text-decoration:none;font-size:12.5px;font-weight:400;color:var(--muted);transition:color .18s,background .18s;border-left:2px solid transparent;line-height:1.4;}
+.nav-item:hover{color:var(--text);background:rgba(255,255,255,0.03);border-left-color:var(--border2);}
+.nav-item.active{color:var(--gold);border-left-color:var(--gold);background:rgba(201,168,76,0.05);}
+.nav-num{font-size:10px;font-weight:500;color:var(--muted2);min-width:20px;font-family:'Outfit',sans-serif;}
+.nav-divider{height:1px;background:var(--border);margin:12px 32px;}
 
-    /* ── Noise texture overlay ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.4;
-    }
+/* CONTENT */
+.content{flex:1;max-width:780px;padding:64px 72px 120px;animation:fadeUp .5s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
 
-    /* ── Header ── */
-    header {
-      position: relative;
-      padding: 80px 24px 60px;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-      overflow: hidden;
-    }
+/* HERO */
+.hero{margin-bottom:72px;padding-bottom:52px;border-bottom:1px solid var(--border);}
+.hero-kicker{font-size:11px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5.5vw,62px);font-weight:600;line-height:1.05;color:var(--white);margin-bottom:8px;letter-spacing:-0.01em;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;font-style:italic;color:var(--muted);margin-bottom:28px;letter-spacing:0.02em;}
+.hero-meta{display:flex;flex-wrap:wrap;gap:28px;margin-bottom:28px;}
+.meta-block dt{font-size:10px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.meta-block dd{font-size:13.5px;font-weight:400;color:var(--text);}
+.hero-notice{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.16);border-left:3px solid var(--gold);padding:16px 20px;font-size:13.5px;line-height:1.75;color:#b0b0bc;border-radius:0 2px 2px 0;}
+.hero-notice strong{color:var(--text);}
 
-    header::after {
-      content: '';
-      position: absolute;
-      top: -60px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 400px;
-      height: 300px;
-      background: radial-gradient(ellipse, rgba(201,169,110,0.12) 0%, transparent 70%);
-      pointer-events: none;
-    }
+/* SECTIONS */
+.section{margin-bottom:64px;padding-bottom:64px;border-bottom:1px solid var(--border);opacity:0;animation:fadeUp .45s ease both;}
+.section:nth-child(1){animation-delay:.04s;}.section:nth-child(2){animation-delay:.08s;}.section:nth-child(3){animation-delay:.12s;}.section:nth-child(4){animation-delay:.15s;}.section:nth-child(5){animation-delay:.18s;}.section:nth-child(6){animation-delay:.21s;}.section:nth-child(7){animation-delay:.24s;}.section:nth-child(8){animation-delay:.27s;}.section:nth-child(9){animation-delay:.30s;}.section:nth-child(10){animation-delay:.33s;}.section:nth-child(11){animation-delay:.36s;}.section:nth-child(12){animation-delay:.38s;}.section:nth-child(13){animation-delay:.40s;}.section:nth-child(14){animation-delay:.42s;}.section:nth-child(15){animation-delay:.44s;}.section:nth-child(16){animation-delay:.46s;}
+.section:last-of-type{border-bottom:none;}
+.section-header{display:flex;align-items:baseline;gap:16px;margin-bottom:26px;}
+.section-num{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:400;color:var(--gold-dim);letter-spacing:0.1em;min-width:28px;}
+.section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.6vw,26px);font-weight:600;color:var(--white);line-height:1.2;letter-spacing:-0.01em;}
 
-    .logo-mark {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 52px;
-      height: 52px;
-      border: 1.5px solid var(--accent);
-      border-radius: 14px;
-      margin-bottom: 20px;
-      position: relative;
-      z-index: 1;
-    }
+p{font-size:14.5px;line-height:1.88;color:#b0b0bc;margin-bottom:16px;}
+p:last-child{margin-bottom:0;}
+p strong{color:var(--text);font-weight:500;}
+a{color:var(--gold);text-decoration:none;}
+a:hover{text-decoration:underline;}
 
-    .logo-mark span {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: -1px;
-    }
+/* CLAUSE LIST */
+.clause-list{list-style:none;padding:0;margin:18px 0;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
+.clause-list li{display:flex;border-bottom:1px solid var(--border);font-size:14px;color:#b0b0bc;line-height:1.75;}
+.clause-list li:last-child{border-bottom:none;}
+.clause-list li::before{content:attr(data-n);display:flex;align-items:flex-start;justify-content:center;min-width:50px;padding:13px 0;font-size:10.5px;font-weight:600;color:var(--gold);background:rgba(201,168,76,0.04);border-right:1px solid var(--border);font-family:'Outfit',sans-serif;letter-spacing:0.05em;flex-shrink:0;}
+.clause-list li span{padding:13px 20px;display:block;}
+.clause-list li strong{color:var(--text);font-weight:500;}
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(28px, 5vw, 44px);
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.5px;
-      position: relative;
-      z-index: 1;
-    }
+/* DATA TABLE */
+.data-wrap{margin:22px 0;border:1px solid var(--border);border-radius:4px;overflow:hidden;overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:13px;}
+thead tr{background:var(--surface);border-bottom:1px solid var(--border2);}
+thead th{padding:12px 16px;text-align:left;font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
+tbody td{padding:13px 16px;border-bottom:1px solid var(--border);color:#b0b0bc;vertical-align:top;line-height:1.65;}
+tbody tr:last-child td{border-bottom:none;}
+tbody tr:hover td{background:rgba(255,255,255,0.012);}
+tbody td strong{color:var(--text);font-weight:500;}
+tbody td em{color:var(--muted);font-style:italic;font-size:12px;}
+.badge{display:inline-block;padding:2px 9px;border-radius:2px;font-size:9.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;white-space:nowrap;}
+.badge-req{background:rgba(224,82,82,0.1);color:#e05252;border:1px solid rgba(224,82,82,0.18);}
+.badge-opt{background:rgba(201,168,76,0.08);color:var(--gold);border:1px solid rgba(201,168,76,0.18);}
 
-    h1 em {
-      font-style: normal;
-      color: var(--accent);
-    }
+/* CALLOUT */
+.callout{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,0.022);border:1px solid var(--border2);border-radius:4px;padding:16px 18px;margin:20px 0;font-size:13.5px;line-height:1.75;color:#a0a0b0;}
+.callout-icon{font-size:15px;flex-shrink:0;margin-top:1px;}
+.callout strong{color:var(--text);font-weight:500;}
+.callout.warn{background:rgba(201,168,76,0.04);border-color:rgba(201,168,76,0.2);}
+.callout.info{background:rgba(60,120,220,0.05);border-color:rgba(60,120,220,0.18);}
 
-    .meta {
-      margin-top: 14px;
-      font-size: 13px;
-      color: var(--muted);
-      letter-spacing: 0.5px;
-      position: relative;
-      z-index: 1;
-    }
+/* CONTACT BLOCK */
+.contact-block{margin-top:22px;background:var(--surface);border:1px solid var(--border2);border-top:2px solid var(--gold);border-radius:0 0 4px 4px;padding:28px 32px;}
+.contact-block .co-label{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.contact-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13.5px;}
+.contact-row:last-child{border-bottom:none;}
+.contact-row .cr-key{color:var(--muted);min-width:100px;font-size:11.5px;padding-top:1px;}
+.contact-row .cr-val{color:var(--text);}
 
-    .meta span {
-      display: inline-block;
-      padding: 4px 12px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: var(--surface);
-    }
+/* DELETION CTA */
+.deletion-cta{margin-top:22px;background:rgba(224,82,82,0.04);border:1px solid rgba(224,82,82,0.16);border-radius:4px;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+.deletion-cta p{margin:0;font-size:13.5px;color:#a0a0b0;}
+.deletion-cta p strong{color:var(--text);}
+.deletion-btn{display:inline-block;padding:9px 22px;background:rgba(224,82,82,0.1);border:1px solid rgba(224,82,82,0.3);border-radius:3px;font-size:11.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#e05252;text-decoration:none;white-space:nowrap;transition:background .18s;}
+.deletion-btn:hover{background:rgba(224,82,82,0.18);text-decoration:none;}
 
-    /* ── Layout ── */
-    .container {
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 60px 24px 100px;
-      position: relative;
-      z-index: 1;
-    }
+/* PARTNER BADGE */
+.partner-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.18);border-radius:3px;padding:10px 16px;font-size:12.5px;margin-top:14px;}
+.partner-badge .pb-label{color:var(--muted);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;}
+.partner-badge .pb-name{color:var(--gold);font-weight:500;}
 
-    /* ── Intro card ── */
-    .intro-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-left: 3px solid var(--accent);
-      border-radius: 12px;
-      padding: 24px 28px;
-      margin-bottom: 52px;
-      font-size: 15px;
-      color: #B0AEA8;
-      line-height: 1.8;
-    }
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:28px 72px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-size:11.5px;color:var(--muted2);letter-spacing:0.04em;margin-left:268px;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--muted);letter-spacing:0.1em;}
+footer a{color:var(--muted);text-decoration:none;}
+footer a:hover{color:var(--text);}
 
-    /* ── Sections ── */
-    .section {
-      margin-bottom: 48px;
-      animation: fadeUp 0.5s ease both;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .section:nth-child(1)  { animation-delay: 0.05s; }
-    .section:nth-child(2)  { animation-delay: 0.10s; }
-    .section:nth-child(3)  { animation-delay: 0.15s; }
-    .section:nth-child(4)  { animation-delay: 0.20s; }
-    .section:nth-child(5)  { animation-delay: 0.25s; }
-    .section:nth-child(6)  { animation-delay: 0.30s; }
-    .section:nth-child(7)  { animation-delay: 0.35s; }
-    .section:nth-child(8)  { animation-delay: 0.40s; }
-    .section:nth-child(9)  { animation-delay: 0.45s; }
-    .section:nth-child(10) { animation-delay: 0.50s; }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-
-    .section-num {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--accent);
-      letter-spacing: 1.5px;
-      font-family: 'DM Sans', sans-serif;
-      min-width: 28px;
-    }
-
-    h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 600;
-      color: var(--text);
-      letter-spacing: -0.2px;
-    }
-
-    .divider {
-      flex: 1;
-      height: 1px;
-      background: var(--border);
-    }
-
-    p {
-      font-size: 15px;
-      color: #A8A6A0;
-      margin-bottom: 14px;
-      line-height: 1.8;
-    }
-
-    p:last-child { margin-bottom: 0; }
-
-    /* ── Data cards ── */
-    .data-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .data-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 14px 16px;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      transition: border-color 0.2s;
-    }
-
-    .data-item:hover { border-color: var(--accent); }
-
-    .data-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-      margin-top: 7px;
-      flex-shrink: 0;
-    }
-
-    .data-item span {
-      font-size: 13px;
-      color: #B0AEA8;
-      line-height: 1.5;
-    }
-
-    /* ── Highlight box ── */
-    .highlight {
-      background: linear-gradient(135deg, rgba(201,169,110,0.06), rgba(201,169,110,0.02));
-      border: 1px solid rgba(201,169,110,0.2);
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin-top: 16px;
-    }
-
-    .highlight p { color: #C0BEB8; margin-bottom: 0; }
-
-    /* ── Contact card ── */
-    .contact-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px;
-      text-align: center;
-      margin-top: 60px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    }
-
-    .contact-card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 18px;
-      color: var(--text);
-      margin-bottom: 8px;
-    }
-
-    .contact-card p {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
-
-    .contact-email {
-      display: inline-block;
-      padding: 10px 28px;
-      background: rgba(201,169,110,0.1);
-      border: 1px solid rgba(201,169,110,0.3);
-      border-radius: 8px;
-      color: var(--accent2);
-      font-size: 14px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.2s;
-      letter-spacing: 0.3px;
-    }
-
-    .contact-email:hover {
-      background: rgba(201,169,110,0.18);
-      border-color: var(--accent);
-    }
-
-    /* ── Footer ── */
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      border-top: 1px solid var(--border);
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 0.3px;
-      position: relative;
-      z-index: 1;
-    }
-
-    footer strong { color: var(--accent); font-weight: 500; }
-
-    /* ── Responsive ── */
-    @media (max-width: 600px) {
-      .data-grid { grid-template-columns: 1fr 1fr; }
-      .container { padding: 40px 18px 80px; }
-      header { padding: 60px 18px 48px; }
-    }
-  </style>
+@media(max-width:880px){
+  .sidebar{display:none;}
+  .content{padding:44px 24px 80px;max-width:100%;}
+  footer{margin-left:0;padding:24px;}
+  .topbar{padding:0 20px;}
+  .topbar-sub{display:none;}
+}
+</style>
 </head>
 <body>
 
-  <header>
-    <div class="logo-mark"><span>M</span></div>
-    <h1>Privacy <em>Policy</em></h1>
-    <div class="meta">
-      <span>Effective Date: March 1, 2026 &nbsp;·&nbsp; Last Updated: March 1, 2026</span>
-    </div>
-  </header>
-
-  <div class="container">
-
-    <div class="intro-card">
-      Welcome to <strong style="color: var(--accent)">Mayfair</strong>. We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, and safeguard your data when you use our mobile application for food ordering, takeaway, and dine-in services.
-    </div>
-
-    <!-- 1 -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-num">01</span>
-        <h2>Information We Collect</h2>
-        <div class="divider"></div>
-      </div>
-      <p>When you use Mayfair, we collect the following types of information to provide and improve our services:</p>
-      <div class="data-grid">
-        <div class="data-item"><div class="data-dot"></div><span>Full name</span></div>
-        <div class="data-item"><div class="data-dot"></div><span>Phone number</span></div>
-        <div class="data-item"><div class="data-dot"></div><span>Email address</span></div>
-        <div class="data-item"><div class="data-dot"></div><span>Delivery address</span></div>
-        <div class="data-item"><div class="data-dot"></div><span>Order history</span></div>
-        <div class="data-item"><div class="data-dot"></div><span>Payment transaction ID</span></div>
-        <div class="data-item"><div class="data-dot"></div><span>Dine-in booking details</span></div>
-        <div class="data-item"><div class="data-dot"></div><span>Device FCM token</span></div>
-        <div class="data-item"><div class="data-dot"></div><span>Food preferences</span></div>
-        <div class="data-item"><div class="data-dot"></div><span>App usage data</span></div>
-      </div>
-    </div>
-
-    <!-- 2 -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-num">02</span>
-        <h2>How We Use Your Information</h2>
-        <div class="divider"></div>
-      </div>
-      <p>We use the information we collect solely to operate and improve the Mayfair app. Specifically, we use your data to:</p>
-      <p>Process your food orders (delivery, takeaway, and dine-in), send real-time order status notifications via Firebase Cloud Messaging (FCM), verify your identity during order pickup and delivery using OTP, manage your saved delivery addresses and preferences, calculate delivery charges and process payments through Razorpay, and provide customer support when needed.</p>
-      <div class="highlight">
-        <p>We do <strong style="color: var(--accent2)">not</strong> sell, rent, or share your personal information with any third party for marketing or advertising purposes.</p>
-      </div>
-    </div>
-
-    <!-- 3 -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-num">03</span>
-        <h2>Payment Information</h2>
-        <div class="divider"></div>
-      </div>
-      <p>All payments are processed securely through <strong style="color: var(--text)">Razorpay</strong>. We do not store your card details, UPI credentials, or any sensitive payment information on our servers. Only the payment transaction ID is stored to track and verify your order payment status.</p>
-      <p>Razorpay's privacy policy governs the handling of your payment data. We encourage you to review it at razorpay.com/privacy.</p>
-    </div>
-
-    <!-- 4 -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-num">04</span>
-        <h2>Push Notifications</h2>
-        <div class="divider"></div>
-      </div>
-      <p>We use <strong style="color: var(--text)">Firebase Cloud Messaging (FCM)</strong> to send you order status updates — such as order confirmed, food ready, out for delivery, and delivered notifications. Your device token is stored securely and is used exclusively for sending order-related notifications.</p>
-      <p>You may disable push notifications at any time through your device settings. This will not affect your ability to place orders, but you will not receive real-time order updates.</p>
-    </div>
-
-    <!-- 5 -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-num">05</span>
-        <h2>Data Storage & Security</h2>
-        <div class="divider"></div>
-      </div>
-      <p>Your data is stored securely on <strong style="color: var(--text)">Supabase</strong>, a cloud database platform with industry-standard security practices including encryption at rest and in transit. We implement appropriate technical and organizational measures to protect your personal data against unauthorized access, alteration, or disclosure.</p>
-      <p>Access to your data is restricted to authorized personnel only, and all sensitive operations require authentication.</p>
-    </div>
-
-    <!-- 6 -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-num">06</span>
-        <h2>Order Types & Specific Data</h2>
-        <div class="divider"></div>
-      </div>
-      <p>Depending on the type of order you place, we collect additional information:</p>
-      <p><strong style="color: var(--text)">Delivery orders</strong> — We collect your delivery address and landmark to fulfill the order. A one-time delivery OTP is generated to verify successful delivery.</p>
-      <p><strong style="color: var(--text)">Takeaway orders</strong> — We generate a pickup OTP which is used by our restaurant staff to confirm your collection. No location data is required.</p>
-      <p><strong style="color: var(--text)">Dine-in bookings</strong> — We collect your preferred visit date, time, and number of guests to manage your table reservation.</p>
-    </div>
-
-    <!-- 7 -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-num">07</span>
-        <h2>Data Retention</h2>
-        <div class="divider"></div>
-      </div>
-      <p>We retain your personal data for as long as your account remains active or as needed to provide our services. Order history is retained for accounting and dispute resolution purposes. You may request deletion of your account and associated data at any time by contacting us.</p>
-      <p>OTP codes are cleared from our database immediately after successful verification.</p>
-    </div>
-
-    <!-- 8 -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-num">08</span>
-        <h2>Your Rights</h2>
-        <div class="divider"></div>
-      </div>
-      <p>You have the right to access, correct, or delete your personal data. You may also request a copy of the data we hold about you. To exercise any of these rights, please contact us using the details below.</p>
-      <p>You may update your profile information (name, phone, saved addresses) directly within the app at any time.</p>
-    </div>
-
-    <!-- 9 -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-num">09</span>
-        <h2>Children's Privacy</h2>
-        <div class="divider"></div>
-      </div>
-      <p>Mayfair is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us immediately and we will delete such information.</p>
-    </div>
-
-    <!-- 10 -->
-    <div class="section">
-      <div class="section-header">
-        <span class="section-num">10</span>
-        <h2>Changes to This Policy</h2>
-        <div class="divider"></div>
-      </div>
-      <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for legal and regulatory reasons. We will notify you of any significant changes through the app or via the email address associated with your account.</p>
-      <p>Continued use of the Mayfair app after changes are posted constitutes your acceptance of the updated policy.</p>
-    </div>
-
-    <!-- Contact -->
-    <div class="contact-card">
-      <h3>Questions or Concerns?</h3>
-      <p>If you have any questions about this Privacy Policy or how we handle your data, please reach out to us.</p>
-      <a href="mailto:kartik@aelvra.com" class="contact-email">kartik@aelvra.com</a>
-    </div>
-
+<!-- TOP BAR -->
+<header class="topbar">
+  <a href="https://aelvra.in" class="topbar-logo">AELVRA</a>
+  <div class="topbar-right">
+    <span class="topbar-sub">May Fair Restaurant · Rohru</span>
+    <a href="terms-and-conditions.html" style="font-size:12px;font-weight:400;color:var(--muted);text-decoration:none;letter-spacing:0.06em;transition:color .18s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">Terms &amp; Conditions</a>
+    <a href="data-deletion.html" style="font-size:12px;font-weight:400;color:var(--muted);text-decoration:none;letter-spacing:0.06em;transition:color .18s;" onmouseover="this.style.color='var(--text)'" onmouseout="this.style.color='var(--muted)'">Data Deletion</a>
+    <span class="topbar-label">Privacy Policy</span>
   </div>
+</header>
 
-  <footer>
-    &copy; 2026 <strong>Mayfair</strong> &nbsp;·&nbsp; Aelvra &nbsp;·&nbsp; All rights reserved
-  </footer>
+<div class="layout">
 
-</body>
-</html>
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-head">Contents</div>
+    <a class="nav-item active" href="#s1"><span class="nav-num">01</span>Scope &amp; Identity</a>
+    <a class="nav-item" href="#s2"><span class="nav-num">02</span>Information Collected</a>
+    <a class="nav-item" href="#s3"><span class="nav-num">03</span>Purpose of Processing</a>
+    <a class="nav-item" href="#s4"><span class="nav-num">04</span>Disclosure of Data</a>
+    <a class="nav-item" href="#s5"><span class="nav-num">05</span>Data Custodianship</a>
+    <a class="nav-item" href="#s6"><span class="nav-num">06</span>Storage &amp; Security</a>
+    <a class="nav-item" href="#s7"><span class="nav-num">07</span>Push Notifications</a>
+    <a class="nav-item" href="#s8"><span class="nav-num">08</span>Payment Processing</a>
+    <a class="nav-item" href="#s9"><span class="nav-num">09</span>Delivery Operations</a>
+    <a class="nav-item" href="#s10"><span class="nav-num">10</span>Orders, Cancellations &amp; Refunds</a>
+    <a class="nav-item" href="#s11"><span class="nav-num">11</span>Service Availability</a>
+    <a class="nav-item" href="#s12"><span class="nav-num">12</span>Your Rights (DPDP)</a>
+    <a class="nav-item" href="#s13"><span class="nav-num">13</span>Data Deletion</a>
+    <a class="nav-item" href="#s14"><span class="nav-num">14</span>Data Retention</a>
+    <a class="nav-item" href="#s15"><span class="nav-num">15</span>Minors</a>
+    <a class="nav-item" href="#s16"><span class="nav-num">16</span>Amendments</a>
+    <a class="nav-item" href="#s17"><span class="nav-num">17</span>Contact &amp; Grievance</a>
+    <div class="nav-divider"></div>
+    <a class="nav-item" href="terms-and-conditions.html"><span class="nav-num">↗</span>Terms &amp; Conditions</a>
+    <a class="nav-item" href="data-deletion.html"><span class="nav-num">↗</span>Data Deletion</a>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-kicker">Legal Document · aelvra.in</div>
+      <h1>Privacy<br/>Policy</h1>
+      <div class="hero-sub">May Fair Restaurant × Aelvra</div>
+      <div class="hero-meta">
+        <dl class="meta-block"><dt>Effective Date</dt><dd>24 March 2026</dd></dl>
+        <dl class="meta-block"><dt>Last Revised</dt><dd>24 March 2026</dd></dl>
+        <dl class="meta-block"><dt>Governing Law</dt><dd>Republic of India</dd></dl>
+        <dl class="meta-block"><dt>Version</dt><dd>1.0</dd></dl>
+        <dl class="meta-block"><dt>Restaurant Location</dt><dd>Rohru, H.P. — 171207</dd></dl>
+      </div>
+      <div class="hero-notice">
+        By accessing or using this application, you acknowledge that you have read, understood, and unconditionally agree to be bound by this Privacy Policy in its entirety. If you do not agree to any provision herein, you must immediately discontinue use of the application. <strong>This Policy constitutes a legally binding agreement between you and Aelvra.</strong>
+      </div>
+    </div>
+
+    <!-- 01 -->
+    <section class="section" id="s1">
+      <div class="section-header"><span class="section-num">01</span><h2>Scope &amp; Identity of the Data Controller</h2></div>
+      <p>This Privacy Policy ("Policy") governs the collection, processing, storage, and disclosure of personal data by <strong>Aelvra</strong> ("Platform Operator", "we", "us", or "our") in connection with the operation of this mobile application ("Application"), developed and maintained for <strong>May Fair Restaurant, Rohru, Himachal Pradesh — 171207</strong> ("Restaurant Partner").</p>
+      <p>Aelvra acts as the <strong>technology platform operator and data infrastructure provider</strong>. May Fair Restaurant acts as the <strong>independent business entity</strong> responsible for order fulfilment, food preparation, and customer-facing services. Both entities may hold certain categories of user data as described in this Policy.</p>
+      <div class="partner-badge">
+        <span class="pb-label">Technology Partner</span>
+        <span class="pb-name">Aelvra — aelvra.in</span>
+        <span style="color:var(--muted);font-size:11px;">powers this application</span>
+      </div>
+    </section>
+
+    <!-- 02 -->
+    <section class="section" id="s2">
+      <div class="section-header"><span class="section-num">02</span><h2>Information We Collect</h2></div>
+      <p>We collect personal information strictly to the extent necessary for the lawful operation of the Application and fulfilment of orders. The following constitutes a complete and transparent disclosure of all data categories collected:</p>
+      <div class="data-wrap">
+        <table>
+          <thead><tr><th>Data Category</th><th>Specific Fields</th><th>Basis</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Identity Data</strong></td><td>Full name, email address</td><td><span class="badge badge-req">Required</span></td></tr>
+            <tr><td><strong>Contact Data</strong></td><td>Primary mobile number; alternate mobile number (optional)</td><td><span class="badge badge-req">Required</span></td></tr>
+            <tr><td><strong>Delivery Data</strong></td><td>Delivery address, selected city, selected area or landmark</td><td><span class="badge badge-req">Delivery orders</span></td></tr>
+            <tr><td><strong>Transactional Data</strong></td><td>Items ordered, quantities, order type (delivery / takeaway / dine-in), special instructions, order status history, invoice and receipt records</td><td><span class="badge badge-req">Required</span></td></tr>
+            <tr><td><strong>Payment Data</strong></td><td>Payment method (online via Razorpay / cash on delivery), transaction reference identifiers. <em>No card numbers, CVV, UPI PIN, or bank credentials are collected or stored by us.</em></td><td><span class="badge badge-req">Required</span></td></tr>
+            <tr><td><strong>Authentication Data</strong></td><td>Login method (Google OAuth or email/password); session authentication tokens</td><td><span class="badge badge-req">Required</span></td></tr>
+            <tr><td><strong>Device Data</strong></td><td>Push notification device token — used exclusively for transactional order notifications</td><td><span class="badge badge-opt">Optional</span></td></tr>
+            <tr><td><strong>Preference Data</strong></td><td>Saved delivery address and landmark stored locally on device for checkout convenience</td><td><span class="badge badge-opt">Optional</span></td></tr>
+            <tr><td><strong>Rating Data</strong></td><td>Average rating data collected in-app. Individual ratings are aggregated and not publicly attributed to any specific user.</td><td><span class="badge badge-opt">Optional</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="callout"><span class="callout-icon">✕</span><div><strong>We expressly do not collect:</strong> GPS or real-time location coordinates, camera or microphone data, device contact lists, biometric identifiers, or any sensitive personal data as defined under applicable Indian law.</div></div>
+      <div class="callout warn"><span class="callout-icon">⚠</span><div><strong>Product Images:</strong> Images displayed within the Application are illustrative representations only. Actual product appearance may differ. Users are advised to review item descriptions carefully — particularly for vegetarian and non-vegetarian distinctions — before confirming any order.</div></div>
+    </section>
+
+    <!-- 03 -->
+    <section class="section" id="s3">
+      <div class="section-header"><span class="section-num">03</span><h2>Purpose of Processing</h2></div>
+      <p>All personal data is processed exclusively for the following specified, explicit, and legitimate purposes. No data shall be processed in any manner incompatible with these purposes:</p>
+      <ul class="clause-list">
+        <li data-n="(a)"><span>Creation, maintenance, and administration of your user account on the Application.</span></li>
+        <li data-n="(b)"><span>Processing, confirming, and fulfilling food orders placed through the Application.</span></li>
+        <li data-n="(c)"><span>Delivery of real-time transactional push notifications — order confirmation, food ready status, delivery boy assignment, OTP for delivery, and delivery completion.</span></li>
+        <li data-n="(d)"><span>Generation and delivery of computer-generated digital receipts and tax invoices for online payment orders.</span></li>
+        <li data-n="(e)"><span>Communication of your name, phone number, and delivery address to assigned delivery personnel solely for order fulfilment.</span></li>
+        <li data-n="(f)"><span>Processing of refund requests in accordance with the refund terms described in Section 10.</span></li>
+        <li data-n="(g)"><span>Responding to customer su
