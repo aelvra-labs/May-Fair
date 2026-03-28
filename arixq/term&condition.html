@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terms &amp; Conditions — ArixQ Calc</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:#0a0a0b;--surface:#111113;--border:#222226;--border2:#2e2e34;
+  --text:#e8e8ec;--muted:#6c6c78;
+  --muted2:#4a4a54;--white:#ffffff;
+  --amber:#5b8dee;--amber-dim:rgba(91,141,238,0.08);--amber-border:rgba(91,141,238,0.22);
+  --blue:#5b8dee;--blue-dim:rgba(91,141,238,0.08);--blue-border:rgba(91,141,238,0.22);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
+
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;background:rgba(10,10,11,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 40px;justify-content:space-between;}
+.topbar-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:0.12em;color:var(--white);text-decoration:none;}
+.topbar-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);background:var(--amber-dim);border:1px solid var(--amber-border);padding:4px 14px;border-radius:2px;}
+
+.layout{display:flex;min-height:100vh;padding-top:56px;}
+
+.sidebar{width:260px;flex-shrink:0;position:sticky;top:56px;height:calc(100vh - 56px);overflow-y:auto;border-right:1px solid var(--border);padding:40px 0;}
+.sidebar-head{font-size:10px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--muted);padding:0 32px 18px;border-bottom:1px solid var(--border);margin-bottom:12px;}
+.nav-item{display:flex;align-items:center;gap:12px;padding:8px 32px;text-decoration:none;font-size:12.5px;font-weight:400;color:var(--muted);transition:color .18s,background .18s;border-left:2px solid transparent;line-height:1.4;}
+.nav-item:hover{color:var(--text);background:rgba(255,255,255,0.03);border-left-color:var(--border2);}
+.nav-item.active{color:var(--blue);border-left-color:var(--blue);background:var(--blue-dim);}
+.nav-num{font-size:10px;color:var(--muted2);min-width:20px;}
+.sidebar-divider{height:1px;background:var(--border);margin:16px 0;}
+.sidebar-other{padding:12px 32px 6px;font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--muted2);}
+
+.content{flex:1;max-width:680px;padding:64px 72px 120px;animation:fadeUp .5s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+.hero{margin-bottom:52px;padding-bottom:44px;border-bottom:1px solid var(--border);}
+.hero-kicker{font-size:11px;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,54px);font-weight:600;line-height:1.08;color:var(--white);margin-bottom:14px;letter-spacing:-0.01em;}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:var(--muted);margin-bottom:24px;line-height:1.5;}
+.hero-meta{display:flex;gap:28px;flex-wrap:wrap;}
+.meta-item{font-size:12px;color:var(--muted);letter-spacing:0.03em;}
+.meta-item strong{color:#c8c8d0;font-weight:500;}
+
+.alert{background:var(--amber-dim);border:1px solid var(--amber-border);border-left:3px solid var(--amber);padding:14px 18px;border-radius:0 3px 3px 0;margin-bottom:36px;font-size:13.5px;line-height:1.7;color:#8090b0;}
+.alert strong{color:var(--text);}
+
+.section{margin-bottom:44px;scroll-margin-top:80px;}
+.section-header{display:flex;align-items:baseline;gap:14px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border);}
+.section-num{font-family:'Cormorant Garamond',serif;font-size:12px;color:var(--blue);opacity:0.5;letter-spacing:0.1em;min-width:26px;}
+.section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.2vw,21px);font-weight:600;color:var(--white);line-height:1.2;}
+
+p{font-size:14px;line-height:1.9;color:#a8a8b8;margin-bottom:14px;}
+p:last-child{margin-bottom:0;}
+p strong{color:#d0d0dc;font-weight:500;}
+a{color:var(--blue);text-decoration:none;}
+a:hover{opacity:0.75;}
+
+.warning{background:var(--amber-dim);border:1px solid var(--amber-border);padding:13px 16px;border-radius:3px;margin:14px 0;font-size:13.5px;line-height:1.7;color:#8090b0;}
+.warning strong{color:#90aad0;}
+
+.callout{display:flex;gap:14px;align-items:flex-start;border-radius:3px;padding:15px 18px;margin:18px 0;font-size:13.5px;line-height:1.75;color:#a0a8b0;}
+.callout.blue{background:var(--blue-dim);border:1px solid var(--blue-border);}
+.callout-icon{font-size:15px;flex-shrink:0;margin-top:2px;}
+
+.divider{height:1px;background:var(--border);margin:8px 0 36px;}
+
+footer{border-top:1px solid var(--border);padding:26px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;letter-spacing:0.12em;color:var(--muted2);}
+footer span{font-size:12px;color:var(--muted2);}
+footer a{color:var(--muted);font-size:12px;text-decoration:none;transition:color .18s;}
+footer a:hover{color:var(--text);}
+
+@media(max-width:768px){
+  .topbar{padding:0 20px;}
+  .sidebar{display:none;}
+  .content{padding:36px 22px 80px;}
+  footer{padding:22px 20px;flex-direction:column;text-align:center;gap:8px;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <span class="topbar-logo">ARIXQ CALC</span>
+  <span class="topbar-label">Terms &amp; Conditions</span>
+</header>
+
+<div class="layout">
+  <nav class="sidebar">
+    <div class="sidebar-head">On This Page</div>
+    <a class="nav-item active" href="#license"><span class="nav-num">01</span>License</a>
+    <a class="nav-item" href="#warranty"><span class="nav-num">02</span>No Warranty</a>
+    <a class="nav-item" href="#accuracy"><span class="nav-num">03</span>Accuracy</a>
+    <a class="nav-item" href="#liability"><span class="nav-num">04</span>Liability</a>
+    <a class="nav-item" href="#indemnification"><span class="nav-num">05</span>Indemnification</a>
+    <a class="nav-item" href="#dispute"><span class="nav-num">06</span>Disputes</a>
+    <a class="nav-item" href="#arbitration"><span class="nav-num">07</span>Arbitration</a>
+    <a class="nav-item" href="#class-action"><span class="nav-num">08</span>Class Action Waiver</a>
+    <a class="nav-item" href="#governing-law"><span class="nav-num">09</span>Governing Law</a>
+    <a class="nav-item" href="#general"><span class="nav-num">10</span>General</a>
+    <a class="nav-item" href="#contact"><span class="nav-num">11</span>Contact</a>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-other">Also</div>
+    <a class="nav-item" href="privacy-policy.html"><span class="nav-num">—</span>Privacy Policy</a>
+  </nav>
+
+  <main class="content">
+
+    <div class="hero">
+      <div class="hero-kicker">ArixQ Calc · Aelvra</div>
+      <h1>Terms &amp; Conditions</h1>
+      <p class="hero-sub">The agreement governing your use of ArixQ Calc.</p>
+      <div class="hero-meta">
+        <span class="meta-item"><strong>Developer:</strong> Aelvra</span>
+        <span class="meta-item"><strong>Last Updated:</strong> March 28, 2026</span>
+      </div>
+    </div>
+
+    <div class="alert">
+      <strong>Please read carefully.</strong> By installing or using ArixQ Calc, you agree to be bound by these Terms. If you do not agree, do not use the app.
+    </div>
+
+    <!-- 01 -->
+    <div class="section" id="license">
+      <div class="section-header"><span class="section-num">01</span><h2>License</h2></div>
+      <p>Aelvra grants you a <strong>limited, personal, non-commercial, non-transferable, revocable license</strong> to use ArixQ Calc on your personal device. This license does not allow you to copy, modify, distribute, sell, or reverse-engineer any part of the app.</p>
+      <p>You may not use the app for any unlawful purpose or in any way that could harm Aelvra or other users.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 02 -->
+    <div class="section" id="warranty">
+      <div class="section-header"><span class="section-num">02</span><h2>No Warranty</h2></div>
+      <div class="warning">
+        <strong>The app is provided "as is" and "as available" without any warranties of any kind</strong> — express or implied — including warranties of merchantability, fitness for a particular purpose, or non-infringement. Aelvra makes no guarantee that the app will be error-free, uninterrupted, or always available.
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 03 -->
+    <div class="section" id="accuracy">
+      <div class="section-header"><span class="section-num">03</span><h2>Accuracy of Results</h2></div>
+      <p>ArixQ Calc aims to be precise, but <strong>you are solely responsible for verifying any result</strong> before relying on it. Do not use this app for critical financial, medical, legal, engineering, or any other high-stakes decisions. Aelvra accepts no liability for errors in calculation or their consequences.</p>
+      <p>Currency exchange rates shown in the app are fetched from third-party sources for informational purposes only. They may not reflect real-time market rates and <strong>do not constitute financial advice.</strong></p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 04 -->
+    <div class="section" id="liability">
+      <div class="section-header"><span class="section-num">04</span><h2>Limitation of Liability</h2></div>
+      <p>To the fullest extent permitted by law, Aelvra shall not be liable for any <strong>direct, indirect, incidental, special, consequential, or punitive damages</strong> arising from your use of or inability to use the app — including but not limited to loss of data, profits, or business opportunity.</p>
+      <p>Aelvra's total cumulative liability to you shall not exceed the amount you have paid for the app in the preceding twelve months. As ArixQ Calc is a free app, this amount is effectively <strong>zero</strong>.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 05 -->
+    <div class="section" id="indemnification">
+      <div class="section-header"><span class="section-num">05</span><h2>Indemnification</h2></div>
+      <p>You agree to indemnify and hold Aelvra harmless from any claims, losses, or damages — including legal fees — arising from your misuse of the app or your breach of these Terms.</p>
+      <p>If you bring a legal claim against Aelvra that is found to be frivolous or without merit, you agree to reimburse Aelvra's reasonable legal costs in defending that claim.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 06 -->
+    <div class="section" id="dispute">
+      <div class="section-header"><span class="section-num">06</span><h2>Informal Dispute Resolution</h2></div>
+      <p>Before initiating any formal legal proceeding, you agree to contact Aelvra at <a href="mailto:contact@aelvra.in">contact@aelvra.in</a> and attempt to resolve the matter informally for at least <strong>30 days</strong>. Most concerns can be resolved quickly this way.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 07 -->
+    <div class="section" id="arbitration">
+      <div class="section-header"><span class="section-num">07</span><h2>Binding Arbitration</h2></div>
+      <p>Any dispute that cannot be resolved informally shall be settled through <strong>binding arbitration</strong>, seated in <strong>Shimla, Himachal Pradesh, India</strong>. Arbitration will be conducted virtually to minimise cost unless the arbitrator requires otherwise.</p>
+      <p>By using the app, you waive your right to a jury trial or to litigate in court.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 08 -->
+    <div class="section" id="class-action">
+      <div class="section-header"><span class="section-num">08</span><h2>Class Action Waiver</h2></div>
+      <p>All disputes must be brought on an <strong>individual basis only</strong>. You may not participate in any class action, consolidated proceeding, or representative action against Aelvra.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 09 -->
+    <div class="section" id="governing-law">
+      <div class="section-header"><span class="section-num">09</span><h2>Governing Law</h2></div>
+      <p>These Terms are governed by the laws of <strong>India</strong>. Any enforcement of arbitration awards or other legal proceedings shall be subject to the exclusive jurisdiction of the courts of <strong>Shimla, Himachal Pradesh, India</strong>.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 10 -->
+    <div class="section" id="general">
+      <div class="section-header"><span class="section-num">10</span><h2>General</h2></div>
+      <p><strong>Severability:</strong> If any provision of these Terms is found unenforceable, it will be modified to the minimum extent necessary and the remaining provisions will remain in full effect.</p>
+      <p><strong>Entire Agreement:</strong> These Terms, together with our Privacy Policy, constitute the complete agreement between you and Aelvra regarding your use of ArixQ Calc.</p>
+      <p><strong>Termination:</strong> Aelvra may suspend or terminate your access to the app at any time, without notice, for any violation of these Terms.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- 11 -->
+    <div class="section" id="contact">
+      <div class="section-header"><span class="section-num">11</span><h2>Contact</h2></div>
+      <p>For any questions about these Terms:</p>
+      <div class="callout blue">
+        <span class="callout-icon">✉</span>
+        <div>
+          <strong>Aelvra</strong><br>
+          General &amp; Legal: <a href="mailto:contact@aelvra.in">contact@aelvra.in</a><br>
+          Support: <a href="mailto:support@aelvra.in">support@aelvra.in</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer>
+  <span class="footer-logo">ARIXQ CALC</span>
+  <span><a href="privacy-policy.html">Privacy Policy</a></span>
+  <span><a href="mailto:contact@aelvra.in">contact@aelvra.in</a></span>
+  <span>© 2026 Aelvra. All rights reserved.</span>
+</footer>
+
+<script>
+const sections = document
