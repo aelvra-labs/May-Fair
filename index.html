@@ -1,258 +1,762 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Aelvra — Custom Web & App Design</title>
-<meta name="description" content="Aelvra builds custom web applications and mobile apps for any type of business or project. Fully tailored solutions from design to deployment."/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<style>
-:root{
-  --bg:#0a0a0b;--surface:#111113;--border:#222226;--border2:#2e2e34;
-  --gold:#c9a84c;--gold-dim:#7a6430;--text:#e8e8ec;--muted:#6c6c78;
-  --muted2:#4a4a54;--white:#ffffff;
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;font-size:16px;}
-body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px;}
-a{color:var(--gold);text-decoration:none;}
-a:hover{text-decoration:underline;}
-p{font-size:14.5px;line-height:1.88;color:#b0b0bc;margin-bottom:16px;}
-p:last-child{margin-bottom:0;}
-p strong{color:var(--text);font-weight:500;}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aelvra | AI, Automation & Connected Device Systems Architecture</title>
+    
+    <!-- Google Fonts for Premium Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Meta Description -->
+    <meta name="description" content="Aelvra engineers high-performance digital systems, web infrastructure, and mobile platforms for businesses that rely on technology as a core operational asset.">
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="https://res.cloudinary.com/dzhfov6mz/image/upload/v1776276071/favicon_tcz8rp.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dzhfov6mz/image/upload/v1776276072/favicon_qujpra.png">
+    <link rel="apple-touch-icon" href="https://res.cloudinary.com/dzhfov6mz/image/upload/v1776276072/favicon_qujpra.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-/* TOPBAR */
-.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;background:rgba(10,10,11,0.94);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 40px;justify-content:space-between;}
-.topbar-logo{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;letter-spacing:0.12em;color:var(--white);text-decoration:none;}
-.topbar-right{display:flex;align-items:center;gap:20px;}
-.topbar-link{font-size:12px;font-weight:400;color:var(--muted);text-decoration:none;letter-spacing:0.06em;transition:color .18s;}
-.topbar-link:hover{color:var(--text);}
-.topbar-label{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);padding:4px 14px;border-radius:2px;}
+    <!-- Tailwind Config for Custom Colors & Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6', // Teal elegant accent
+                            600: '#0d9488',
+                            900: '#134e4a',
+                            950: '#042f2e', // Deep enterprise dark
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 80px 80px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse 60% 50% at 70% 40%,rgba(201,168,76,0.06) 0%,transparent 70%);pointer-events:none;}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:80px 80px;opacity:0.25;pointer-events:none;}
-.hero-content{position:relative;z-index:1;max-width:680px;animation:fadeUp .6s ease both;}
-.hero-kicker{font-size:11px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:12px;}
-.hero-kicker::before{content:'';display:inline-block;width:32px;height:1px;background:var(--gold);}
-.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,7vw,88px);font-weight:600;line-height:1.0;color:var(--white);margin-bottom:12px;letter-spacing:-0.02em;}
-.hero h1 em{font-style:italic;color:var(--gold);}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;font-style:italic;color:var(--muted);margin-bottom:36px;line-height:1.5;}
-.hero-desc{font-size:15px;line-height:1.85;color:#8a8a96;max-width:480px;margin-bottom:48px;}
-.hero-actions{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.3);border-radius:3px;font-size:12px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);text-decoration:none;transition:background .2s,border-color .2s;}
-.btn-primary:hover{background:rgba(201,168,76,0.18);border-color:rgba(201,168,76,0.5);text-decoration:none;}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:400;letter-spacing:0.1em;color:var(--muted);text-decoration:none;transition:color .18s;}
-.btn-ghost:hover{color:var(--text);text-decoration:none;}
-.hero-scroll{position:absolute;bottom:40px;left:80px;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted2);display:flex;align-items:center;gap:10px;}
-.hero-scroll::before{content:'';display:inline-block;width:40px;height:1px;background:var(--muted2);}
+    <style>
+        /* Custom Styles for extra premium feel */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
 
-/* DIVIDER */
-.section-divider{height:1px;background:var(--border);margin:0 80px;}
+        /* Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-/* SECTIONS */
-.section{padding:96px 80px;}
-.section-kicker{font-size:10px;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--gold-dim);margin-bottom:16px;}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,46px);font-weight:600;color:var(--white);margin-bottom:14px;line-height:1.1;letter-spacing:-0.01em;}
-.section-title em{font-style:italic;color:var(--gold);}
-.section-lead{font-size:15px;line-height:1.85;color:#8a8a96;max-width:520px;margin-bottom:52px;}
-
-/* FEATURES */
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:4px;overflow:hidden;}
-.feature{background:var(--bg);padding:32px 28px;transition:background .2s;}
-.feature:hover{background:var(--surface);}
-.feature-icon{font-size:20px;margin-bottom:18px;}
-.feature-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--white);margin-bottom:10px;}
-.feature-desc{font-size:13px;line-height:1.75;color:var(--muted);}
-
-/* CLIENTS */
-.clients-section{padding:96px 80px;background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.client-card{border:1px solid var(--border2);border-top:2px solid var(--gold);border-radius:0 0 4px 4px;background:var(--bg);padding:36px 40px;max-width:540px;}
-.client-label{font-size:10px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
-.client-name{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--white);margin-bottom:6px;}
-.client-loc{font-size:13px;color:var(--muted);margin-bottom:28px;letter-spacing:0.04em;}
-.client-links{display:flex;flex-direction:column;gap:0;border:1px solid var(--border);border-radius:4px;overflow:hidden;}
-.client-link{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;font-size:12.5px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--border);transition:background .18s,color .18s;}
-.client-link:last-child{border-bottom:none;}
-.client-link:hover{background:rgba(201,168,76,0.04);color:var(--text);text-decoration:none;}
-.client-link span{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold-dim);}
-.client-link-arrow{font-size:12px;color:var(--muted2);}
-
-/* CONTACT */
-.contact-section{padding:96px 80px;}
-.contact-block{background:var(--surface);border:1px solid var(--border2);border-top:2px solid var(--gold);border-radius:0 0 4px 4px;padding:28px 32px;max-width:420px;}
-.contact-block-label{font-size:10px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
-.contact-row{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--border);font-size:13px;}
-.contact-row:last-child{border-bottom:none;}
-.cr-key{color:var(--muted);min-width:80px;font-size:11px;padding-top:1px;}
-.cr-val{color:var(--text);}
-.cr-val a{color:var(--gold);}
-
-/* FOOTER */
-footer{border-top:1px solid var(--border);padding:28px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:11.5px;color:var(--muted2);letter-spacing:0.04em;}
-.footer-logo{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--muted);letter-spacing:0.1em;}
-.footer-links{display:flex;gap:20px;flex-wrap:wrap;}
-footer a{color:var(--muted);text-decoration:none;}
-footer a:hover{color:var(--text);}
-
-/* ANIMATIONS */
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .hero{padding:100px 24px 60px;}
-  .section{padding:64px 24px;}
-  .section-divider{margin:0 24px;}
-  .clients-section{padding:64px 24px;}
-  .contact-section{padding:64px 24px;}
-  .features{grid-template-columns:1fr;}
-  footer{padding:24px;}
-  .topbar{padding:0 20px;}
-  .topbar-label{display:none;}
-  .hero-scroll{display:none;}
-}
-</style>
+        .gradient-text {
+            background: linear-gradient(135deg, #042f2e 0%, #14b8a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800 font-sans selection:bg-brand-500 selection:text-white">
 
-<!-- TOPBAR -->
-<header class="topbar">
-  <a href="/" class="topbar-logo">AELVRA</a>
-  <div class="topbar-right">
-    <a href="mailto:support@aelvra.in" class="topbar-link">support@aelvra.in</a>
-    <span class="topbar-label">App & Web Design</span>
-  </div>
-</header>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <span class="font-black text-3xl tracking-widest text-brand-600" style="letter-spacing: 0.15em; font-weight: 900;">Aelvra.</span>
+                </div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-content">
-    <div class="hero-kicker">Custom Application Design</div>
-    <h1>Built for<br/><em>any project.</em></h1>
-    <div class="hero-sub">Web Apps · Mobile Apps · Custom Solutions.</div>
-    <p class="hero-desc">Aelvra designs and builds custom web applications and mobile apps for businesses of all types — from concept to deployment, fully tailored to your unique needs.</p>
-    <div class="hero-actions">
-      <a href="mailto:support@aelvra.in" class="btn-primary">Get in Touch ↗</a>
-      <a href="#clients" class="btn-ghost">View Clients →</a>
-    </div>
-  </div>
-  <div class="hero-scroll">Scroll to explore</div>
-</section>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="text-slate-600 hover:text-brand-600 font-medium transition-colors text-sm">Home</a>
+                    <a href="#solutions" class="text-slate-600 hover:text-brand-600 font-medium transition-colors text-sm">What We Build</a>
+                    <a href="#approach" class="text-slate-600 hover:text-brand-600 font-medium transition-colors text-sm">Our Approach</a>
+                    <a href="#clients" class="text-slate-600 hover:text-brand-600 font-medium transition-colors text-sm">Clients</a>
+                    <a href="#contact" class="bg-brand-950 hover:bg-brand-900 text-white px-6 py-2.5 rounded-full text-sm font-medium transition-all shadow-lg shadow-brand-950/20 hover:shadow-brand-950/40 hover:-translate-y-0.5">
+                        Request Evaluation
+                    </a>
+                </div>
 
-<div class="section-divider"></div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-brand-950 focus:outline-none p-2">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
 
-<!-- WHAT WE BUILD -->
-<section class="section">
-  <div class="section-kicker">What We Build</div>
-  <h2 class="section-title">Everything your business<br/><em>needs, digitally.</em></h2>
-  <p class="section-lead">From concept to launch — Aelvra handles the full stack, building custom web and mobile applications tailored to your unique business requirements.</p>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-100 absolute w-full shadow-xl">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#home" class="block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50 rounded-lg">Home</a>
+                <a href="#solutions" class="block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50 rounded-lg">What We Build</a>
+                <a href="#approach" class="block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50 rounded-lg">Our Approach</a>
+                <a href="#clients" class="block px-3 py-3 text-base font-medium text-slate-700 hover:text-brand-600 hover:bg-slate-50 rounded-lg">Clients</a>
+                <div class="pt-4">
+                    <a href="#contact" class="block text-center w-full bg-brand-950 text-white px-6 py-3 rounded-xl text-base font-medium">Request Evaluation</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-  <div class="features">
-    <div class="feature">
-      <div class="feature-icon">📱</div>
-      <div class="feature-title">Custom Mobile App</div>
-      <div class="feature-desc">Fully branded mobile applications built for iOS and Android. Tailored to your business logic, user flows, and brand identity.</div>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">⚡</div>
-      <div class="feature-title">Real-Time Features</div>
-      <div class="feature-desc">Live notifications, real-time data sync, push notifications, and OTP verification — every interaction tracked and optimized.</div>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">💳</div>
-      <div class="feature-title">Payment Integration</div>
-      <div class="feature-desc">Secure payment processing via Razorpay and other gateways. Auto-generated invoices, receipts, and transaction tracking.</div>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">🗺️</div>
-      <div class="feature-title">Location & Mapping</div>
-      <div class="feature-desc">Geolocation features, zone management, landmarks, and live tracking capabilities integrated into your application.</div>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">📋</div>
-      <div class="feature-title">Custom Admin Dashboard</div>
-      <div class="feature-desc">Full administrative control panel for managing content, users, settings, and all application data in real time.</div>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">🔒</div>
-      <div class="feature-title">Legal & Compliant</div>
-      <div class="feature-desc">DPDP Act 2023 compliant. Data on ISO 27001 certified servers in Mumbai, India. Full legal documentation included.</div>
-    </div>
-  </div>
-</section>
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Abstract Background Elements -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-[40rem] h-[40rem] rounded-full bg-brand-50 blur-3xl opacity-50 -z-10"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-[30rem] h-[30rem] rounded-full bg-blue-50 blur-3xl opacity-50 -z-10"></div>
 
-<div class="section-divider"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-sm font-semibold mb-8 border border-brand-100">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-500 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-600"></span>
+                </span>
+                AI Systems · Automation Architecture · Real-Time Device Control · Secure Infrastructure
+            </div>
+            
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-brand-950 mb-6 leading-[1.1]">
+                Digital Infrastructure, <br class="hidden md:block">
+                <span class="gradient-text">Engineered With Precision.</span>
+            </h1>
+            
+            <p class="mt-6 text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                Aelvra builds AI-powered software, cloud, and mobile systems that connect, automate, and intelligently control real-world electronics and operational infrastructure in real time.
+            </p>
+            
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#clients" class="w-full sm:w-auto bg-brand-950 hover:bg-brand-900 text-white px-8 py-4 rounded-full text-base font-semibold transition-all shadow-xl shadow-brand-950/20 hover:shadow-brand-950/40 hover:-translate-y-1 flex items-center justify-center gap-2">
+                    View Our Work <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <a href="#contact" class="w-full sm:w-auto bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 px-8 py-4 rounded-full text-base font-semibold transition-all hover:border-slate-300 flex items-center justify-center gap-2">
+                    Request Evaluation <i data-lucide="arrow-up-right" class="w-4 h-4 text-brand-600"></i>
+                </a>
+            </div>
+        </div>
+    </section>
 
-<!-- CLIENTS -->
-<section class="clients-section" id="clients">
-  <div class="section-kicker">Our Clients</div>
-  <h2 class="section-title">Powering <em>businesses</em><br/>across India.</h2>
-  <p class="section-lead">Every client we partner with gets a fully custom application — built, hosted, and maintained by Aelvra.</p>
+    <!-- Services / What We Build Section -->
+    <section id="solutions" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">What We Engineer</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-brand-950 tracking-tight">Technology systems built around operational logic.</h3>
+                <p class="mt-4 text-slate-600 text-lg">Systems designed around scale, reliability, and your core operational requirements.</p>
+            </div>
 
-  <div class="client-card">
-    <div class="client-label">Active Partner · Since 2026</div>
-    <div class="client-name">May Fair Restaurant</div>
-    <div class="client-loc">Rohru, Himachal Pradesh — 171207</div>
-    <div class="client-links">
-      <a href="https://aelvra.in/mayfair/privacy-policy.html" class="client-link">
-        <span>Privacy Policy</span>
-        <span class="client-link-arrow">↗</span>
-      </a>
-      <a href="https://aelvra.in/mayfair/terms-and-conditions.html" class="client-link">
-        <span>Terms &amp; Conditions</span>
-        <span class="client-link-arrow">↗</span>
-      </a>
-    </div>
-  </div>
-</section>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="group bg-slate-50 rounded-3xl p-8 transition-all duration-300 hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 border border-transparent hover:border-slate-100 reveal">
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-8 group-hover:-translate-y-2 transition-transform duration-300">
+                        <i data-lucide="smartphone" class="w-7 h-7 text-brand-600"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-950 mb-3">Custom Mobile Apps</h4>
+                    <p class="text-slate-600 leading-relaxed">AI-enabled mobile control systems designed to monitor, automate, and operate connected devices and workflows in real time.</p>
+                </div>
 
-<div class="section-divider"></div>
+                <!-- Feature 2 -->
+                <div class="group bg-slate-50 rounded-3xl p-8 transition-all duration-300 hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 border border-transparent hover:border-slate-100 reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-8 group-hover:-translate-y-2 transition-transform duration-300">
+                        <i data-lucide="zap" class="w-7 h-7 text-brand-600"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-950 mb-3">Real-Time Features</h4>
+                    <p class="text-slate-600 leading-relaxed">Live device communication, automation triggers, AI decision logic, and real-time control architecture.</p>
+                </div>
 
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="section-kicker">Get In Touch</div>
-  <h2 class="section-title">Want a custom app for<br/><em>your business?</em></h2>
-  <p class="section-lead">Reach out and we'll get back to you within 7 business days.</p>
+                <!-- Feature 3 -->
+                <div class="group bg-slate-50 rounded-3xl p-8 transition-all duration-300 hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 border border-transparent hover:border-slate-100 reveal" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-8 group-hover:-translate-y-2 transition-transform duration-300">
+                        <i data-lucide="credit-card" class="w-7 h-7 text-brand-600"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-950 mb-3">Payment Integration</h4>
+                    <p class="text-slate-600 leading-relaxed">Enterprise-grade payment infrastructure with automated billing and audit trails.</p>
+                </div>
 
-  <div class="contact-block">
-    <div class="contact-block-label">Aelvra — Custom App Design</div>
-    <div class="contact-row">
-      <span class="cr-key">Email (Support)</span>
-      <span class="cr-val"><a href="mailto:support@aelvra.in">support@aelvra.in</a></span>
-    </div>
-    <div class="contact-row">
-      <span class="cr-key">Email (Contact)</span>
-      <span class="cr-val"><a href="mailto:contact@aelvra.in">contact@aelvra.in</a></span>
-    </div>
-    <div class="contact-row">
-      <span class="cr-key">Website</span>
-      <span class="cr-val"><a href="https://aelvra.in">aelvra.in</a></span>
-    </div>
-    <div class="contact-row">
-      <span class="cr-key">Response</span>
-      <span class="cr-val">Within 7 business days</span>
-    </div>
-    <div class="contact-row">
-      <span class="cr-key">Scope</span>
-      <span class="cr-val">Partnerships, platform enquiries, technical support</span>
-    </div>
-  </div>
-</section>
+                <!-- Feature 4 -->
+                <div class="group bg-slate-50 rounded-3xl p-8 transition-all duration-300 hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 border border-transparent hover:border-slate-100 reveal">
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-8 group-hover:-translate-y-2 transition-transform duration-300">
+                        <i data-lucide="map-pin" class="w-7 h-7 text-brand-600"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-950 mb-3">Location & Mapping</h4>
+                    <p class="text-slate-600 leading-relaxed">Advanced geolocation intelligence, zone control, and live movement tracking.</p>
+                </div>
 
-<!-- FOOTER -->
-<footer>
-  <span class="footer-logo">AELVRA</span>
-  <div class="footer-links">
-    <a href="https://aelvra.in/privacy-policy.html">Privacy Policy</a>
-    <a href="https://aelvra.in/terms-and-conditions.html">Terms &amp; Conditions</a>
-    <a href="mailto:support@aelvra.in">support@aelvra.in</a>
-    <a href="mailto:contact@aelvra.in">contact@aelvra.in</a>
-  </div>
-  <span>© 2026 Aelvra. All rights reserved.</span>
-</footer>
+                <!-- Feature 5 -->
+                <div class="group bg-slate-50 rounded-3xl p-8 transition-all duration-300 hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 border border-transparent hover:border-slate-100 reveal" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-8 group-hover:-translate-y-2 transition-transform duration-300">
+                        <i data-lucide="layout-dashboard" class="w-7 h-7 text-brand-600"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-950 mb-3">Custom Admin Dashboard</h4>
+                    <p class="text-slate-600 leading-relaxed">Central command interface with complete system-level oversight.</p>
+                </div>
 
+                <!-- Feature 6 -->
+                <div class="group bg-slate-50 rounded-3xl p-8 transition-all duration-300 hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 border border-transparent hover:border-slate-100 reveal" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-8 group-hover:-translate-y-2 transition-transform duration-300">
+                        <i data-lucide="shield-check" class="w-7 h-7 text-brand-600"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-brand-950 mb-3">Legal & Compliant</h4>
+                    <p class="text-slate-600 leading-relaxed">Infrastructure aligned with DPDP Act 2023. Hosted on ISO-certified Indian servers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Connected Device Systems Section -->
+    <section id="connected-systems" class="py-24 bg-slate-50 relative overflow-hidden border-t border-slate-100">
+        <!-- Abstract Background Glows for IoT Vibe -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
+            <div class="absolute top-[-10%] right-[-5%] w-[40rem] h-[40rem] rounded-full bg-brand-100/50 blur-[100px]"></div>
+            <div class="absolute bottom-[20%] left-[-10%] w-[30rem] h-[30rem] rounded-full bg-teal-100/50 blur-[100px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Block 1: Intro -->
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-24 reveal">
+                <div>
+                    <h2 class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">Aelvra connects the physical world to the internet.</h2>
+                    <h3 class="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-950 tracking-tight mb-6">Connected Device Systems</h3>
+                    <p class="text-xl text-brand-700 font-medium mb-6 leading-relaxed">Real-time control, monitoring, and intelligence for field devices.</p>
+                    <p class="text-brand-900 font-semibold text-lg mb-4">
+                        If a device runs on electricity, Aelvra can make it smart, connected, automated, and controllable from anywhere.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed text-lg">
+                        Electronics today come with Wi-Fi, Bluetooth, or SIM capability. Aelvra designs the secure software systems that connect these devices to cloud servers, live dashboards, and mobile apps — enabling real-time visibility and automation in legally authorized environments.
+                    </p>
+                </div>
+                <div class="relative rounded-[2.5rem] overflow-hidden aspect-[4/3] shadow-2xl shadow-slate-200/50 border border-slate-100">
+                    <img src="https://res.cloudinary.com/dzhfov6mz/image/upload/v1776274871/electronics_mnygtr.png" alt="Hardware Circuit" class="object-cover w-full h-full hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+
+            <!-- Block 2: What This Makes Possible -->
+            <div class="mb-24 reveal">
+                <h4 class="text-3xl font-bold text-brand-950 mb-8 border-l-4 border-brand-500 pl-4">What This Makes Possible</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white border border-slate-100 shadow-xl shadow-slate-200/30 rounded-3xl p-6 hover:-translate-y-1 transition-all duration-300">
+                        <i data-lucide="map" class="w-8 h-8 text-brand-600 mb-4"></i>
+                        <p class="text-brand-950 font-medium text-lg leading-snug">Live map of devices across sites, facilities, land, and infrastructure</p>
+                    </div>
+                    <div class="bg-white border border-slate-100 shadow-xl shadow-slate-200/30 rounded-3xl p-6 hover:-translate-y-1 transition-all duration-300">
+                        <i data-lucide="activity" class="w-8 h-8 text-brand-600 mb-4"></i>
+                        <p class="text-brand-950 font-medium text-lg leading-snug">Real-time data from sensors, cameras, and machines</p>
+                    </div>
+                    <div class="bg-white border border-slate-100 shadow-xl shadow-slate-200/30 rounded-3xl p-6 hover:-translate-y-1 transition-all duration-300">
+                        <i data-lucide="smartphone" class="w-8 h-8 text-brand-600 mb-4"></i>
+                        <p class="text-brand-950 font-medium text-lg leading-snug">Remote monitoring through web and mobile dashboards</p>
+                    </div>
+                    <div class="bg-white border border-slate-100 shadow-xl shadow-slate-200/30 rounded-3xl p-6 hover:-translate-y-1 transition-all duration-300">
+                        <i data-lucide="bell-ring" class="w-8 h-8 text-brand-600 mb-4"></i>
+                        <p class="text-brand-950 font-medium text-lg leading-snug">Alerts, telemetry, and activity history</p>
+                    </div>
+                    <div class="bg-white border border-slate-100 shadow-xl shadow-slate-200/30 rounded-3xl p-6 hover:-translate-y-1 transition-all duration-300">
+                        <i data-lucide="cpu" class="w-8 h-8 text-brand-600 mb-4"></i>
+                        <p class="text-brand-950 font-medium text-lg leading-snug">Rule-based automation and smart triggers</p>
+                    </div>
+                    <div class="bg-white border border-slate-100 shadow-xl shadow-slate-200/30 rounded-3xl p-6 hover:-translate-y-1 transition-all duration-300">
+                        <i data-lucide="radio" class="w-8 h-8 text-brand-600 mb-4"></i>
+                        <p class="text-brand-950 font-medium text-lg leading-snug">Compatibility with Google Assistant and Amazon Alexa where supported</p>
+                    </div>
+                    <!-- Full width card for the last point -->
+                    <div class="lg:col-span-3 bg-gradient-to-r from-brand-50 to-white border border-brand-100 shadow-xl shadow-brand-100/50 rounded-3xl p-6 hover:-translate-y-1 transition-all duration-300 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+                        <div class="p-3 bg-white rounded-2xl border border-brand-100 shadow-sm">
+                            <i data-lucide="battery-charging" class="w-8 h-8 text-brand-600"></i>
+                        </div>
+                        <p class="text-brand-950 font-medium text-xl">Solar / battery / SIM deployments for off-grid areas</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 3: Practical Use Cases -->
+            <div class="mb-24 reveal">
+                <h4 class="text-3xl font-bold text-brand-950 mb-8 border-l-4 border-brand-500 pl-4">Practical Use Cases</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <!-- Photo Card 1 -->
+                    <div class="lg:col-span-2 relative rounded-3xl overflow-hidden group min-h-[280px] shadow-lg">
+                        <img src="https://res.cloudinary.com/dzhfov6mz/image/upload/v1776275173/agriculture_kp0aiu.png" alt="Agriculture field monitoring" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                            <h5 class="text-xl font-bold text-white">Agriculture field monitoring</h5>
+                        </div>
+                    </div>
+                    <!-- Photo Card 2 -->
+                    <div class="lg:col-span-3 relative rounded-3xl overflow-hidden group min-h-[280px] shadow-lg">
+                        <img src="https://res.cloudinary.com/dzhfov6mz/image/upload/v1776275179/solar_yhn4fc.png" alt="Solar camera installations" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                            <h5 class="text-xl font-bold text-white">Solar camera installations in remote land</h5>
+                        </div>
+                    </div>
+                    <!-- Photo Card 3 -->
+                    <div class="lg:col-span-2 relative rounded-3xl overflow-hidden group min-h-[280px] shadow-lg">
+                        <img src="https://res.cloudinary.com/dzhfov6mz/image/upload/v1776275422/equipment_w2gux6.png" alt="Equipment status tracking" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                            <h5 class="text-xl font-bold text-white">Equipment and machine status tracking</h5>
+                        </div>
+                    </div>
+                    <!-- Photo Card 4 -->
+                    <div class="lg:col-span-1 relative rounded-3xl overflow-hidden group min-h-[280px] shadow-lg">
+                        <img src="https://res.cloudinary.com/dzhfov6mz/image/upload/v1776275423/smarlocks_tkdbsh.png" alt="Smart locks" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                            <h5 class="text-xl font-bold text-white">Smart locks and access control systems</h5>
+                        </div>
+                    </div>
+                    <!-- Photo Card 5 -->
+                    <div class="lg:col-span-2 relative rounded-3xl overflow-hidden group min-h-[280px] shadow-lg">
+                        <img src="https://res.cloudinary.com/dzhfov6mz/image/upload/v1776275646/environmental_srxtm0.png" alt="Environmental sensors" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-transparent"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                            <h5 class="text-xl font-bold text-white">Environmental and location sensors</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 4: How Aelvra Works & Core Capabilities -->
+            <div class="bg-white rounded-[2.5rem] p-8 md:p-12 mb-24 reveal shadow-2xl shadow-slate-200/50 border border-slate-100 text-slate-900">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <div>
+                        <h4 class="text-brand-600 font-semibold uppercase tracking-wider text-sm mb-4">How Aelvra Works Here</h4>
+                        <h5 class="text-3xl md:text-4xl font-bold text-brand-950 mb-6">We do not manufacture devices.</h5>
+                        <p class="text-xl text-slate-600 leading-relaxed border-l-4 border-brand-500 pl-6 py-2 bg-slate-50 rounded-r-2xl">
+                            We integrate existing or custom electronics with secure cloud infrastructure, dashboards, and apps — turning standalone hardware into intelligently connected systems.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-2xl font-bold text-brand-950 mb-8">Core Capabilities</h4>
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-4">
+                                <div class="bg-brand-50 p-2 rounded-xl flex-shrink-0 border border-brand-100">
+                                    <i data-lucide="cloud" class="w-6 h-6 text-brand-600"></i>
+                                </div>
+                                <span class="text-slate-700 font-medium text-lg pt-1">Device-to-cloud communication architecture</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="bg-brand-50 p-2 rounded-xl flex-shrink-0 border border-brand-100">
+                                    <i data-lucide="shield" class="w-6 h-6 text-brand-600"></i>
+                                </div>
+                                <span class="text-slate-700 font-medium text-lg pt-1">Secure server endpoints and encrypted data flow</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="bg-brand-50 p-2 rounded-xl flex-shrink-0 border border-brand-100">
+                                    <i data-lucide="layout-dashboard" class="w-6 h-6 text-brand-600"></i>
+                                </div>
+                                <span class="text-slate-700 font-medium text-lg pt-1">Real-time dashboards and control panels</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="bg-brand-50 p-2 rounded-xl flex-shrink-0 border border-brand-100">
+                                    <i data-lucide="smartphone" class="w-6 h-6 text-brand-600"></i>
+                                </div>
+                                <span class="text-slate-700 font-medium text-lg pt-1">Mobile app interfaces for monitoring and control</span>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="bg-brand-50 p-2 rounded-xl flex-shrink-0 border border-brand-100">
+                                    <i data-lucide="zap" class="w-6 h-6 text-brand-600"></i>
+                                </div>
+                                <span class="text-slate-700 font-medium text-lg pt-1">Automation logic and event triggers</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 5: Signature Line & Trust Note -->
+            <div class="text-center max-w-4xl mx-auto reveal">
+                <h3 class="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-400 leading-tight mb-10">
+                    We don’t build devices.<br>
+                    <span class="text-brand-950">We build the intelligence, automation, and AI layer that makes them remotely controllable.</span>
+                </h3>
+                <div class="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-white border border-slate-200 shadow-xl shadow-slate-200/50">
+                    <i data-lucide="shield-check" class="w-5 h-5 text-emerald-500"></i>
+                    <p class="text-sm md:text-base text-slate-700 font-medium tracking-wide">All systems are designed for secure, legal, and authorized deployments only.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- NEW SECTION: AI-Driven Automation & Intelligent Control -->
+    <section id="ai-automation" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+            <!-- Hero Block -->
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20 reveal">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">AI-Driven Automation & Intelligent Control</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold text-brand-950 tracking-tight mb-6">Where electronics meet cloud intelligence and AI decision logic.</h3>
+                    
+                    <p class="text-xl text-slate-700 mb-6 leading-relaxed">
+                        AI is not an add-on at Aelvra. It is the core intelligence layer behind every automation, dashboard, alert, and control system we build.
+                    </p>
+
+                    <p class="text-xl text-brand-900 font-medium mb-6 leading-relaxed">
+                        Aelvra designs AI-powered software systems that automate, monitor, and intelligently control any electronic device through secure cloud infrastructure — from industrial equipment to access systems, sensors, cameras, and operational hardware.
+                    </p>
+                    
+                    <div class="bg-brand-50 border-l-4 border-brand-500 p-5 rounded-r-2xl mb-8">
+                        <p class="text-lg text-slate-700 font-medium">
+                            AI is integrated where it adds operational value — from intelligent alerts to automated decisions and in-app assistant support.
+                        </p>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 relative rounded-[2.5rem] overflow-hidden aspect-[4/3] shadow-2xl shadow-slate-200/50 border border-slate-100 group">
+                    <img src="https://res.cloudinary.com/dzhfov6mz/image/upload/v1776274489/smar_aggri_ko2vrg.png" alt="Smart Agriculture Automation" class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brand-950/30 to-transparent"></div>
+                </div>
+            </div>
+
+            <!-- Bullet Cards (What Aelvra Adds) -->
+            <div class="mb-24 reveal">
+                <h4 class="text-3xl font-bold text-brand-950 mb-8 border-l-4 border-brand-500 pl-4">What Aelvra Adds Beyond Connectivity</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Card 1 -->
+                    <div class="bg-white border border-slate-200 shadow-lg shadow-slate-200/20 rounded-3xl p-8 hover:border-brand-300 hover:shadow-xl transition-all duration-300 group">
+                        <div class="bg-brand-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-1 transition-transform">
+                            <i data-lucide="cpu" class="w-7 h-7 text-brand-600"></i>
+                        </div>
+                        <h5 class="text-xl font-bold text-brand-950 mb-3">AI-Based Rule Engines</h5>
+                        <p class="text-slate-600 leading-relaxed">Smart automation based on conditions. Example: If soil is dry, trigger the motor ON automatically.</p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white border border-slate-200 shadow-lg shadow-slate-200/20 rounded-3xl p-8 hover:border-brand-300 hover:shadow-xl transition-all duration-300 group">
+                        <div class="bg-brand-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-1 transition-transform">
+                            <i data-lucide="bell-ring" class="w-7 h-7 text-brand-600"></i>
+                        </div>
+                        <h5 class="text-xl font-bold text-brand-950 mb-3">Intelligent Alerts</h5>
+                        <p class="text-slate-600 leading-relaxed">Get meaningful, synthesized notifications instead of just raw, overwhelming sensor data streams.</p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-white border border-slate-200 shadow-lg shadow-slate-200/20 rounded-3xl p-8 hover:border-brand-300 hover:shadow-xl transition-all duration-300 group">
+                        <div class="bg-brand-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-1 transition-transform">
+                            <i data-lucide="line-chart" class="w-7 h-7 text-brand-600"></i>
+                        </div>
+                        <h5 class="text-xl font-bold text-brand-950 mb-3">Predictive Behavior</h5>
+                        <p class="text-slate-600 leading-relaxed">AI analysis to predict device failure, optimize water usage, and track power consumption patterns.</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="bg-white border border-slate-200 shadow-lg shadow-slate-200/20 rounded-3xl p-8 hover:border-brand-300 hover:shadow-xl transition-all duration-300 group">
+                        <div class="bg-brand-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-1 transition-transform">
+                            <i data-lucide="message-square" class="w-7 h-7 text-brand-600"></i>
+                        </div>
+                        <h5 class="text-xl font-bold text-brand-950 mb-3">AI Chat Support</h5>
+                        <p class="text-slate-600 leading-relaxed">In-app AI assistant for operators to ask questions, check status, or troubleshoot instantly.</p>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="bg-white border border-slate-200 shadow-lg shadow-slate-200/20 rounded-3xl p-8 hover:border-brand-300 hover:shadow-xl transition-all duration-300 group">
+                        <div class="bg-brand-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-1 transition-transform">
+                            <i data-lucide="file-text" class="w-7 h-7 text-brand-600"></i>
+                        </div>
+                        <h5 class="text-xl font-bold text-brand-950 mb-3">Smart Logs & Reports</h5>
+                        <p class="text-slate-600 leading-relaxed">Automated reporting and actionable recommendations generated from historical system data.</p>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="bg-white border border-slate-200 shadow-lg shadow-slate-200/20 rounded-3xl p-8 hover:border-brand-300 hover:shadow-xl transition-all duration-300 group">
+                        <div class="bg-brand-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 group-hover:-translate-y-1 transition-transform">
+                            <i data-lucide="toggle-right" class="w-7 h-7 text-brand-600"></i>
+                        </div>
+                        <h5 class="text-xl font-bold text-brand-950 mb-3">Optional AI Layer</h5>
+                        <p class="text-slate-600 leading-relaxed">The AI is completely optional — the entire system can run fully manual if operational protocols require it.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Powerful Paragraph & Positioning Block -->
+            <div class="bg-brand-950 rounded-[2.5rem] p-8 md:p-12 mb-24 reveal text-center shadow-2xl relative overflow-hidden">
+                <!-- Dashboard background overlay -->
+                <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center mix-blend-overlay"></div>
+                <div class="absolute inset-0 bg-gradient-to-b from-brand-950/80 to-brand-950/95"></div>
+                
+                <div class="relative z-10 max-w-4xl mx-auto">
+                    <i data-lucide="zap" class="w-12 h-12 text-brand-400 mx-auto mb-6"></i>
+                    <p class="text-2xl md:text-3xl text-white font-medium leading-relaxed mb-10">
+                        "Any electronic system that can be triggered by a switch, relay, or network signal can be transformed into an AI-assisted, remotely controllable system through Aelvra’s software and server architecture."
+                    </p>
+                    
+                    <div class="bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-8 inline-block text-left shadow-2xl">
+                        <p class="text-brand-300 font-bold uppercase tracking-widest text-sm mb-3 text-center">Our Clear Positioning</p>
+                        <h4 class="text-2xl md:text-3xl text-white font-bold mb-4 text-center">We do not manufacture electronics.</h4>
+                        <p class="text-brand-100 text-lg md:text-xl text-center max-w-2xl mx-auto leading-relaxed">
+                            We collaborate with existing or custom hardware and build the <span class="text-white font-bold bg-brand-500/20 px-2 py-0.5 rounded">cloud, app, dashboard, automation, and AI intelligence layer</span> around it.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Practical Examples Strip -->
+            <div class="mb-24 reveal">
+                <h4 class="text-3xl font-bold text-brand-950 mb-8 border-l-4 border-brand-500 pl-4">Practical Implementations</h4>
+                <div class="flex flex-wrap gap-4">
+                    <div class="bg-slate-50 border border-slate-200 rounded-full px-6 py-3.5 flex items-center gap-3 hover:bg-white hover:border-brand-500 hover:shadow-lg hover:shadow-brand-500/10 transition-all cursor-default">
+                        <i data-lucide="droplets" class="w-5 h-5 text-brand-600"></i>
+                        <span class="text-brand-950 font-medium">Irrigation motor automation based on soil sensors</span>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 rounded-full px-6 py-3.5 flex items-center gap-3 hover:bg-white hover:border-brand-500 hover:shadow-lg hover:shadow-brand-500/10 transition-all cursor-default">
+                        <i data-lucide="sun" class="w-5 h-5 text-brand-600"></i>
+                        <span class="text-brand-950 font-medium">Remote pump control in off-grid farms (solar + SIM)</span>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 rounded-full px-6 py-3.5 flex items-center gap-3 hover:bg-white hover:border-brand-500 hover:shadow-lg hover:shadow-brand-500/10 transition-all cursor-default">
+                        <i data-lucide="lock" class="w-5 h-5 text-brand-600"></i>
+                        <span class="text-brand-950 font-medium">Smart access control & lock management</span>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 rounded-full px-6 py-3.5 flex items-center gap-3 hover:bg-white hover:border-brand-500 hover:shadow-lg hover:shadow-brand-500/10 transition-all cursor-default">
+                        <i data-lucide="activity" class="w-5 h-5 text-brand-600"></i>
+                        <span class="text-brand-950 font-medium">Equipment runtime monitoring & alerts</span>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 rounded-full px-6 py-3.5 flex items-center gap-3 hover:bg-white hover:border-brand-500 hover:shadow-lg hover:shadow-brand-500/10 transition-all cursor-default">
+                        <i data-lucide="cloud-rain" class="w-5 h-5 text-brand-600"></i>
+                        <span class="text-brand-950 font-medium">Environmental condition monitoring</span>
+                    </div>
+                    <div class="bg-slate-50 border border-slate-200 rounded-full px-6 py-3.5 flex items-center gap-3 hover:bg-white hover:border-brand-500 hover:shadow-lg hover:shadow-brand-500/10 transition-all cursor-default">
+                        <i data-lucide="monitor-smartphone" class="w-5 h-5 text-brand-600"></i>
+                        <span class="text-brand-950 font-medium">Central farm / facility control from mobile & PC</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Signature Line -->
+            <div class="text-center max-w-4xl mx-auto reveal">
+                <h3 class="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-300 leading-tight">
+                    Connectivity makes devices visible.<br>
+                    <span class="text-brand-950">AI makes them intelligent.</span>
+                </h3>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Split Content / Approach Section -->
+    <section id="approach" class="py-24 bg-slate-50 overflow-hidden border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Text Side -->
+                <div class="w-full lg:w-1/2 reveal">
+                    <h2 class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">The Aelvra Approach</h2>
+                    <h3 class="text-3xl md:text-5xl font-bold text-brand-950 tracking-tight mb-6 leading-tight">Engineered Ownership From Day One</h3>
+                    <p class="text-lg text-slate-600 leading-relaxed mb-8">
+                        We take full architectural ownership of the systems we build — from structure and deployment to long-term reliability. 
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 mt-1">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-brand-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-brand-950">End-to-End Ownership</h4>
+                                <p class="text-slate-600 mt-1">We design, build, host, and continuously maintain your custom applications.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 mt-1">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-brand-500"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-brand-950">Scalable Architecture</h4>
+                                <p class="text-slate-600 mt-1">Infrastructure built to grow with your business, ensuring zero downtime and high performance.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Side -->
+                <div class="w-full lg:w-1/2 relative reveal">
+                    <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-slate-300/50 z-10 aspect-[4/3]">
+                        <img src="https://res.cloudinary.com/dzhfov6mz/image/upload/v1776275712/Engineered_dtesfn.png" alt="Software Development Process" class="object-cover w-full h-full hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-950/40 to-transparent"></div>
+                    </div>
+                    <!-- Decorative blob -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-brand-200 rounded-full blur-3xl opacity-30 -z-10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients" class="py-24 bg-white border-t border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-3">Our Partnerships</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-brand-950 tracking-tight">Selected Partnerships</h3>
+                <p class="mt-4 text-slate-600 text-lg">Every client we partner with gets a fully custom application — exclusively built, hosted, and maintained by Aelvra.</p>
+            </div>
+
+            <!-- Client Cards -->
+            <div class="max-w-4xl mx-auto grid grid-cols-1 gap-8">
+                <div class="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 hover:shadow-xl hover:shadow-slate-200/50 hover:bg-white transition-all duration-300 reveal">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-semibold mb-4">
+                            <span class="w-2 h-2 rounded-full bg-brand-500"></span> Active Partner · Since 2026
+                        </div>
+                        <h4 class="text-2xl font-bold text-brand-950 mb-2">May Fair Restaurant</h4>
+                        <p class="text-slate-500 flex items-center gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i> Rohru, Himachal Pradesh — 171207
+                        </p>
+                        <p class="text-brand-600 text-sm font-semibold mt-3">Custom Ordering & Operations System Engineered by Aelvra</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto">
+                        <a href="https://aelvra.in/mayfair/privacy-policy.html" class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl border border-slate-300 text-slate-600 hover:bg-slate-100 hover:text-brand-950 font-medium transition-colors text-sm gap-2">
+                            Privacy Policy <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                        <a href="https://aelvra.in/mayfair/terms-and-conditions.html" class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl border border-slate-300 text-slate-600 hover:bg-slate-100 hover:text-brand-950 font-medium transition-colors text-sm gap-2">
+                            Terms & Conditions <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <section id="contact" class="py-24 bg-brand-950 relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-brand-900 -skew-x-12 translate-x-32 opacity-50 -z-10"></div>
+        <div class="absolute bottom-0 left-10 w-64 h-64 bg-brand-500 rounded-full blur-[100px] opacity-20 -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col lg:flex-row justify-between items-center gap-12">
+                
+                <!-- Text Area -->
+                <div class="w-full lg:w-5/12 reveal text-center lg:text-left">
+                    <h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">Request Project Evaluation</h2>
+                    <div class="w-16 h-1 bg-brand-500 rounded-full mb-6 mx-auto lg:mx-0"></div>
+                    <p class="text-xl text-brand-100 font-light">If you are planning to build a serious digital system for your operations, you may request an evaluation from our engineering team.</p>
+                </div>
+
+                <!-- Contact Info Cards -->
+                <div class="w-full lg:w-7/12 grid grid-cols-1 sm:grid-cols-2 gap-6 reveal" style="transition-delay: 100ms;">
+                    <!-- Email Support -->
+                    <div class="rounded-2xl p-6 hover:bg-white/20 transition-colors" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(20px);">
+                        <i data-lucide="life-buoy" class="w-8 h-8 text-brand-300 mb-4"></i>
+                        <h4 class="text-white font-semibold text-lg">Support Email</h4>
+                        <a href="mailto:support@aelvra.in" class="text-brand-200 hover:text-white mt-1 block">support@aelvra.in</a>
+                    </div>
+
+                    <!-- Email Contact -->
+                    <div class="rounded-2xl p-6 hover:bg-white/20 transition-colors" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(20px);">
+                        <i data-lucide="mail" class="w-8 h-8 text-brand-300 mb-4"></i>
+                        <h4 class="text-white font-semibold text-lg">Contact & Partnerships</h4>
+                        <a href="mailto:contact@aelvra.in" class="text-brand-200 hover:text-white mt-1 block">contact@aelvra.in</a>
+                    </div>
+
+                    <!-- SLA -->
+                    <div class="rounded-2xl p-6 hover:bg-white/20 transition-colors" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(20px);">
+                        <i data-lucide="clock" class="w-8 h-8 text-brand-300 mb-4"></i>
+                        <h4 class="text-white font-semibold text-lg">Evaluation Response</h4>
+                        <p class="text-brand-200 mt-1">Within 7 business days</p>
+                    </div>
+
+                    <!-- Website -->
+                    <div class="rounded-2xl p-6 hover:bg-white/20 transition-colors" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); backdrop-filter: blur(20px);">
+                        <i data-lucide="globe" class="w-8 h-8 text-brand-300 mb-4"></i>
+                        <h4 class="text-white font-semibold text-lg">Website</h4>
+                        <a href="https://aelvra.in" class="text-brand-200 hover:text-white mt-1 block">aelvra.in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-start gap-8 mb-12">
+                <!-- Brand -->
+                <div class="text-center md:text-left">
+                    <div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+                        <span class="font-black text-3xl tracking-widest text-brand-500" style="letter-spacing: 0.15em; font-weight: 900;">Aelvra.</span>
+                    </div>
+                    <p class="text-sm max-w-xs text-slate-500">Digital Systems Architecture for Modern Businesses.</p>
+                    <p class="text-xs text-slate-600 mt-2">Built, Hosted & Maintained by Aelvra Engineering</p>
+                </div>
+
+                <!-- Links -->
+                <div class="flex flex-wrap justify-center md:justify-end gap-x-8 gap-y-4 text-sm font-medium">
+                    <a href="https://aelvra.in/privacy-policy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="https://aelvra.in/terms-and-conditions.html" class="hover:text-white transition-colors">Terms & Conditions</a>
+                    <a href="mailto:support@aelvra.in" class="hover:text-white transition-colors">support@aelvra.in</a>
+                    <a href="mailto:contact@aelvra.in" class="hover:text-white transition-colors">contact@aelvra.in</a>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex justify-center text-center">
+                <p class="text-slate-600 text-sm">© 2026 Aelvra. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialize Icons & Interactivity -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Sticky Navbar Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-sm');
+                navbar.classList.replace('py-0', 'py-1');
+            } else {
+                navbar.classList.remove('shadow-sm');
+                navbar.classList.replace('py-1', 'py-0');
+            }
+        });
+
+        // Scroll Reveal Animation (Intersection Observer)
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, revealOptions);
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
+        });
+    </script>
 </body>
 </html>
